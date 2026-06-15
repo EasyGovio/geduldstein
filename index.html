@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geduldstein | Der Stein, der zuhört</title>
+  <meta name="description" content="Ein uraltes Ritual. Ein stiller Zuhörer. Erzähl ihm, was du nicht mehr tragen kannst.">
+  <link rel="canonical" href="https://geduldstein.de/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --earth:   #1C140E;
+      --earth2:  #241A12;
+      --clay:    #8B6F5E;
+      --clay-lt: rgba(139,111,94,0.12);
+      --sand:    #D4C4A8;
+      --sand-lt: rgba(212,196,168,0.08);
+      --forest:  #3A5240;
+      --forest-lt: rgba(58,82,64,0.15);
+      --cream:   #F2EDE4;
+      --muted:   rgba(242,237,228,0.6);
+      --border:  rgba(139,111,94,0.22);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--earth); }
+
+    body {
+      background: var(--earth);
+      color: var(--cream);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.85;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem;
+      backdrop-filter: blur(16px);
+      background: rgba(28,20,14,0.92);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 300; font-style: italic;
+      color: var(--sand); text-decoration: none; letter-spacing: 0.08em;
+    }
+
+    .lang-bar { display: flex; gap: 0.4rem; }
+    .lang-btn {
+      background: none; border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted); font-family: 'DM Mono', monospace;
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.3rem 0.7rem; cursor: pointer; transition: all 0.25s;
+    }
+    .lang-btn:hover, .lang-btn.active {
+      color: var(--sand); border-color: var(--clay);
+      background: var(--clay-lt);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 5rem;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(139,111,94,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(58,82,64,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Taş animasyonu */
+    .stone-glyph {
+      font-size: 4rem; margin-bottom: 2rem;
+      display: block;
+      opacity: 0; animation: fadeUp 1s ease 0.1s forwards;
+      filter: grayscale(0.3);
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--clay); margin-bottom: 1.5rem; display: block;
+      opacity: 0; animation: fadeUp 1s ease 0.2s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: 300; font-style: italic;
+      line-height: 1.05; letter-spacing: 0.06em;
+      color: var(--cream); margin-bottom: 1.2rem;
+      opacity: 0; animation: fadeUp 1s ease 0.3s forwards;
+    }
+
+    .hero-title em { color: var(--sand); font-style: normal; font-weight: 400; }
+
+    .hero-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-style: italic; color: var(--muted);
+      max-width: 520px; line-height: 1.75;
+      margin-bottom: 3rem;
+      opacity: 0; animation: fadeUp 1s ease 0.45s forwards;
+    }
+
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      opacity: 0; animation: fadeUp 1s ease 0.6s forwards;
+    }
+
+    .btn-primary {
+      background: var(--clay); color: var(--cream);
+      border: none; padding: 0.9rem 2.2rem;
+      font-family: 'Source Serif 4', serif; font-size: 0.95rem;
+      cursor: pointer; transition: all 0.25s; text-decoration: none;
+      display: inline-block; font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+    .btn-primary:hover { background: #9d8070; transform: translateY(-2px); }
+
+    .btn-outline {
+      background: none; color: var(--sand);
+      border: 1px solid var(--border);
+      padding: 0.9rem 2.2rem;
+      font-family: 'Source Serif 4', serif; font-size: 0.95rem;
+      cursor: pointer; transition: all 0.25s; text-decoration: none;
+      display: inline-block; font-weight: 300;
+    }
+    .btn-outline:hover { border-color: var(--clay); background: var(--clay-lt); }
+
+    /* DIVIDER */
+    .divider {
+      width: 40px; height: 1px; background: var(--border);
+      margin: 4rem auto;
+    }
+
+    /* ARTICLE */
+    .article-section {
+      max-width: 740px; margin: 0 auto; padding: 2rem 2rem 5rem;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--clay); margin-bottom: 1rem; display: block;
+    }
+
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 300; line-height: 1.2;
+      color: var(--cream); margin-bottom: 2rem;
+    }
+
+    .article-body { color: var(--muted); font-size: 1rem; line-height: 1.9; }
+    .article-body p { margin-bottom: 1.4rem; }
+    .article-body strong { color: var(--cream); font-weight: 400; }
+
+    .pull-quote {
+      border-left: 2px solid var(--clay);
+      padding: 1rem 1.5rem; margin: 2rem 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-style: italic;
+      color: var(--sand); line-height: 1.5;
+    }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px; background: var(--border);
+      margin: 2rem 0;
+    }
+
+    .culture-card {
+      background: var(--earth2); padding: 1.5rem;
+      transition: background 0.25s;
+    }
+    .culture-card:hover { background: var(--clay-lt); }
+
+    .culture-flag { font-size: 1.5rem; margin-bottom: 0.6rem; display: block; }
+    .culture-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--clay); margin-bottom: 0.5rem;
+    }
+    .culture-text { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* SHARE SECTION */
+    .share-section {
+      background: var(--earth2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 2rem; text-align: center;
+    }
+
+    .share-inner { max-width: 600px; margin: 0 auto; }
+
+    .share-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 300; font-style: italic;
+      color: var(--cream); margin-bottom: 0.8rem;
+    }
+
+    .share-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 2.5rem; line-height: 1.75; }
+
+    .form-field {
+      width: 100%; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); color: var(--cream);
+      font-family: 'Source Serif 4', serif; font-size: 0.95rem;
+      padding: 0.85rem 1.2rem; margin-bottom: 0.8rem;
+      outline: none; transition: border 0.2s;
+    }
+    .form-field:focus { border-color: var(--clay); }
+    .form-field::placeholder { color: rgba(242,237,228,0.25); }
+    textarea.form-field { min-height: 120px; resize: vertical; }
+
+    .form-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.08em;
+      color: var(--muted); margin-top: 0.8rem; line-height: 1.6;
+    }
+
+    /* VOLUNTEER */
+    .vol-section {
+      background: var(--forest-lt);
+      border-top: 1px solid rgba(58,82,64,0.3);
+      border-bottom: 1px solid rgba(58,82,64,0.3);
+      padding: 4rem 2rem; text-align: center;
+    }
+
+    .vol-inner { max-width: 620px; margin: 0 auto; }
+
+    .vol-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 300; font-style: italic;
+      color: #7AB893; margin-bottom: 1rem;
+    }
+
+    .vol-desc { color: var(--muted); font-size: 0.92rem; margin-bottom: 1.5rem; line-height: 1.8; }
+
+    .trigger-chips {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      justify-content: center; margin: 1.2rem 0;
+    }
+
+    .chip {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.1em;
+      border: 1px solid rgba(58,82,64,0.5);
+      color: #7AB893; padding: 0.4rem 0.9rem;
+      background: none;
+    }
+
+    .ref-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1rem;
+      color: var(--sand); margin: 1.2rem 0 1.8rem;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2.5rem 3rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1rem; color: var(--sand);
+    }
+
+    .footer-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.08em; color: var(--muted);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 680px) {
+      nav { padding: 1rem 1.2rem; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .article-section { padding: 1.5rem 1.2rem 4rem; }
+      .culture-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 2rem 1.2rem; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Geduldstein</a>
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('de')" id="btn-de">DE</button>
+    <button class="lang-btn" onclick="setLang('tr')" id="btn-tr">TR</button>
+    <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="stone-glyph">🪨</span>
+  <span class="hero-eyebrow" id="h-eyebrow">Sabır · Geduld · Patience</span>
+  <h1 class="hero-title" id="h-title">Geduld<em>stein</em></h1>
+  <p class="hero-quote" id="h-quote">
+    "Steine schweigen. Aber sie hören zu — seit Jahrtausenden."
+  </p>
+  <div class="hero-actions">
+    <a href="#anlatmak" class="btn-primary" id="h-btn-share">Anlat</a>
+    <a href="#tarih" class="btn-outline" id="h-btn-read">Sabır Taşını Keşfet</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ARTICLE -->
+<section class="article-section" id="tarih">
+  <span class="section-label" id="a-label">Tarih · Geschichte · History</span>
+  <h2 class="article-title" id="a-title">
+    Sabır Taşı: Binlerce Yıllık Evrensel Bir Gelenek
+  </h2>
+  <div class="article-body" id="a-body">
+    <p>Türk kültüründe bir inanış vardır: İnsan, içini dökmek için bir sabır taşı bulur. Ona anlatır — sevincini, kederini, öfkesini, utancını. Taş sustukça yük hafifler. Ve bir gün taş çatlar — o an insan anlar ki içini dökmüş, arınmıştır.</p>
+
+    <div class="pull-quote" id="a-pullquote">
+      "Taş çatlayana kadar anlat. Taş çatlarsa — sen kurtuldun."
+    </div>
+
+    <p>Ama sabır taşı yalnızca Türk geleneğine özgü değildir. Dünyanın dört bir yanında, farklı biçimlerde, aynı ihtiyaç ortaya çıkmıştır: <strong>İnsanın, yargılanmadan, dinlenmesi gereken bir nesneye ya da mekâna ihtiyacı vardır.</strong></p>
+  </div>
+
+  <!-- Kültür Grid -->
+  <div class="culture-grid" id="culture-grid">
+    <div class="culture-card">
+      <span class="culture-flag">🇹🇷</span>
+      <div class="culture-name">Türk Geleneği</div>
+      <div class="culture-text">Sabır taşı — içini döktükçe yükü alan, zamanı gelince çatlayan sessiz dost.</div>
+    </div>
+    <div class="culture-card">
+      <span class="culture-flag">🇮🇪</span>
+      <div class="culture-name">Kelt Geleneği</div>
+      <div class="culture-text">Kutsal taşlara dokunarak dilek dileme ve iç huzuru arama ritüeli.</div>
+    </div>
+    <div class="culture-card">
+      <span class="culture-flag">🇯🇵</span>
+      <div class="culture-name">Japon Geleneği</div>
+      <div class="culture-text">Jizō heykelleri — yolculara ve kayıp ruhlara adanan taş bekçiler.</div>
+    </div>
+    <div class="culture-card">
+      <span class="culture-flag">🌍</span>
+      <div class="culture-name">Afrika Gelenekleri</div>
+      <div class="culture-text">Ata ruhlarına yakın olduğuna inanılan taşlara niyet ve dua bırakma.</div>
+    </div>
+    <div class="culture-card">
+      <span class="culture-flag">🇮🇱</span>
+      <div class="culture-name">Yahudi Geleneği</div>
+      <div class="culture-text">Mezar taşlarına küçük taş bırakmak — hatıra, saygı ve süreklilik işareti.</div>
+    </div>
+    <div class="culture-card">
+      <span class="culture-flag">🏔️</span>
+      <div class="culture-name">Tibet Geleneği</div>
+      <div class="culture-text">Mani taşları — üzerine dua yazılı, dağ geçitlerinde yığılan kutsal taşlar.</div>
+    </div>
+  </div>
+
+  <div class="article-body" id="a-body2">
+    <p>Modern psikoloji de bu geleneği doğrulamaktadır. <strong>Eksternalizasyon</strong> — yani sorunu "dışarı çıkarma" — bilişsel davranış terapisinin temel araçlarından biridir. Sorunu bir nesneye, bir sayfaya, bir taşa yansıtmak; onu "ben"den ayırmak ve böylece üzerinde daha net düşünebilmek demektir.</p>
+    <p>Geduldstein, bu kadim geleneği dijital çağa taşır. Yargısız. Anonim. Ve sessiz.</p>
+  </div>
+</section>
+
+<!-- ANLATMAK SECTION -->
+<section class="share-section" id="anlatmak">
+  <div class="share-inner">
+    <h2 class="share-title" id="s-title">Taşına anlat</h2>
+    <p class="share-sub" id="s-sub">
+      Bir takma ad seç. Gerçek değil. Yaz — ne taşırsan, ne kadar taşırsan. Yargı yok, çözüm beklentisi yok. Sadece dinleyen bir sessizlik.
+    </p>
+    <form onsubmit="submitStone(event)">
+      <input class="form-field" type="text" id="s-nick" placeholder="Nick / Takma Ad" required>
+      <input class="form-field" type="email" id="s-email" placeholder="E-posta (gizli kalır, doğrulama için)" required>
+      <textarea class="form-field" id="s-text" placeholder="Taşına ne anlatmak istiyorsun?" required></textarea>
+      <button type="submit" class="btn-primary" style="width:100%;margin-top:0.4rem;" id="s-btn">Taşa Bırak</button>
+    </form>
+    <p class="form-note" id="s-note">
+      E-posta adresiniz hiçbir zaman görünmez. Onay maili gelecek, ardından paylaşabilirsiniz.<br>
+      Tüm paylaşımlar moderatör onayından sonra yayınlanır. İsteğe bağlı: Gönüllü dinleyiciyle eşleştirme.
+    </p>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section class="vol-section">
+  <div class="vol-inner">
+    <h2 class="vol-title" id="vol-title">Gönüllü Dinleyici Ol</h2>
+    <p class="vol-desc" id="vol-desc">
+      Psikoloji, sosyoloji veya sosyal hizmet alanında mısınız? Geduldstein'da gönüllü dinleyici olarak insanların yükünü hafifletmelerine katkıda bulunabilirsiniz.
+    </p>
+    <div class="trigger-chips">
+      <span class="chip">🎓 Psikoloji Öğrencisi</span>
+      <span class="chip">👥 Sosyoloji Stajyeri</span>
+      <span class="chip">🌿 Sosyal Hizmet</span>
+      <span class="chip">✍️ Manevi Danışman</span>
+      <span class="chip">🌍 Halkla İlişkiler</span>
+    </div>
+    <p class="ref-note" id="vol-ref">
+      "Gönüllü dinleyicilere AskMeAI Teknoloji Ltd. Şti. imzalı resmi referans mektubu sunulmaktadır."
+    </p>
+    <a href="mailto:gonullu@geduldstein.de" class="btn-outline" id="vol-btn">Başvur →</a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Geduldstein</span>
+  <span class="footer-note" id="f-note">© 2026 PACDI · Tüm içerikler moderatör onayından geçer · Gizlilik dostu</span>
+</footer>
+
+<script>
+var T = {
+  de: {
+    eyebrow: "Sabır · Geduld · Patience",
+    title: "Geduld<em>stein</em>",
+    quote: '"Steine schweigen. Aber sie hören zu — seit Jahrtausenden."',
+    btnShare: "Erzählen", btnRead: "Den Geduldstein entdecken",
+    aLabel: "Tarih · Geschichte · History",
+    aTitle: "Der Geduldstein: Eine jahrtausendealte universelle Tradition",
+    aBody: '<p>In der türkischen Kultur gibt es einen Glauben: Der Mensch findet einen Geduldstein und erzählt ihm alles — seine Freude, seinen Kummer, seine Wut, seine Scham. Je mehr er erzählt, desto leichter wird die Last. Und eines Tages zerbricht der Stein — in diesem Moment weiß der Mensch: Er hat sich befreit.</p><div class="pull-quote">"Erzähl, bis der Stein zerbricht. Wenn er zerbricht — bist du frei."</div><p>Doch der Geduldstein gehört nicht allein zur türkischen Tradition. Überall auf der Welt ist dieselbe Notwendigkeit entstanden: <strong>Der Mensch braucht etwas, dem er erzählen kann, ohne verurteilt zu werden.</strong></p>',
+    aBody2: '<p>Die moderne Psychologie bestätigt diese Tradition. <strong>Externalisierung</strong> — das Herausnehmen eines Problems — ist ein zentrales Werkzeug der kognitiven Verhaltenstherapie. Ein Problem auf ein Objekt zu projizieren bedeutet, es vom Selbst zu trennen und klarer darüber nachzudenken.</p><p>Geduldstein bringt diese alte Tradition ins digitale Zeitalter. Urteilsfrei. Anonym. Und still.</p>',
+    pullquote: '"Erzähl, bis der Stein zerbricht. Wenn er zerbricht — bist du frei."',
+    cultures: [
+      {flag:"🇹🇷", name:"Türkische Tradition", text:"Der Geduldstein — ein stiller Freund, der die Last trägt und eines Tages zerbricht."},
+      {flag:"🇮🇪", name:"Keltische Tradition", text:"Rituale des Berührens heiliger Steine, um inneren Frieden zu suchen."},
+      {flag:"🇯🇵", name:"Japanische Tradition", text:"Jizō-Statuen — steinerne Wächter für Reisende und verlorene Seelen."},
+      {flag:"🌍", name:"Afrikanische Traditionen", text:"Steine, die den Ahnengeistern nahestehen, erhalten Absichten und Gebete."},
+      {flag:"🇮🇱", name:"Jüdische Tradition", text:"Kleine Steine auf Grabsteinen — Zeichen der Erinnerung und Kontinuität."},
+      {flag:"🏔️", name:"Tibetische Tradition", text:"Mani-Steine — mit Gebeten beschriftete heilige Steine an Bergpässen."}
+    ],
+    sTitle: "Erzähl deinem Stein",
+    sSub: "Wähle einen Namen. Keinen echten. Schreib — was auch immer du trägst. Kein Urteil, keine Erwartung. Nur stille Stille.",
+    sNick: "Nickname", sEmail: "E-Mail (bleibt privat)", sText: "Was möchtest du deinem Stein erzählen?",
+    sBtn: "Dem Stein übergeben",
+    sNote: "Deine E-Mail bleibt unsichtbar. Nach der Bestätigung kannst du teilen.\nAlle Beiträge werden vor der Veröffentlichung moderiert.",
+    volTitle: "Freiwilliger Zuhörer werden",
+    volDesc: "Studierst du Psychologie oder Soziologie? Als freiwilliger Zuhörer bei Geduldstein trägst du dazu bei, dass Menschen Lasten leichter tragen.",
+    volRef: '"Freiwillige erhalten ein offizielles Referenzschreiben von AskMeAI Teknoloji Ltd. Şti."',
+    volBtn: "Bewerben →",
+    fNote: "© 2026 PACDI · Alle Inhalte werden moderiert · Datenschutzfreundlich"
+  },
+  tr: {
+    eyebrow: "Sabır · Geduld · Patience",
+    title: "Sabır<em>taşı</em>",
+    quote: '"Taşlar susar. Ama dinler — binlerce yıldır."',
+    btnShare: "Anlat", btnRead: "Sabır Taşını Keşfet",
+    aLabel: "Tarih · Geschichte · History",
+    aTitle: "Sabır Taşı: Binlerce Yıllık Evrensel Bir Gelenek",
+    aBody: '<p>Türk kültüründe bir inanış vardır: İnsan, içini dökmek için bir sabır taşı bulur. Ona anlatır — sevincini, kederini, öfkesini, utancını. Taş sustukça yük hafifler. Ve bir gün taş çatlar — o an insan anlar ki içini dökmüş, arınmıştır.</p><div class="pull-quote">"Taş çatlayana kadar anlat. Taş çatlarsa — sen kurtuldun."</div><p>Ama sabır taşı yalnızca Türk geleneğine özgü değildir. Dünyanın dört bir yanında aynı ihtiyaç ortaya çıkmıştır: <strong>İnsanın, yargılanmadan dinlendiği bir nesneye ya da mekâna ihtiyacı vardır.</strong></p>',
+    aBody2: '<p>Modern psikoloji de bu geleneği doğrulamaktadır. <strong>Eksternalizasyon</strong> — sorunu dışarı çıkarma — bilişsel davranış terapisinin temel araçlarından biridir. Sorunu bir nesneye yansıtmak; onu "ben"den ayırmak ve üzerinde daha net düşünebilmek demektir.</p><p>Geduldstein, bu kadim geleneği dijital çağa taşır. Yargısız. Anonim. Ve sessiz.</p>',
+    pullquote: '"Taş çatlayana kadar anlat. Taş çatlarsa — sen kurtuldun."',
+    cultures: [
+      {flag:"🇹🇷", name:"Türk Geleneği", text:"Sabır taşı — içini döktükçe yükü alan, zamanı gelince çatlayan sessiz dost."},
+      {flag:"🇮🇪", name:"Kelt Geleneği", text:"Kutsal taşlara dokunarak dilek dileme ve iç huzuru arama ritüeli."},
+      {flag:"🇯🇵", name:"Japon Geleneği", text:"Jizō heykelleri — yolculara ve kayıp ruhlara adanan taş bekçiler."},
+      {flag:"🌍", name:"Afrika Gelenekleri", text:"Ata ruhlarına yakın taşlara niyet ve dua bırakma."},
+      {flag:"🇮🇱", name:"Yahudi Geleneği", text:"Mezar taşlarına küçük taş bırakmak — hatıra ve süreklilik işareti."},
+      {flag:"🏔️", name:"Tibet Geleneği", text:"Mani taşları — üzerine dua yazılı, dağ geçitlerinde yığılan kutsal taşlar."}
+    ],
+    sTitle: "Taşına anlat",
+    sSub: "Bir takma ad seç. Gerçek değil. Yaz — ne taşırsan. Yargı yok, çözüm beklentisi yok. Sadece dinleyen bir sessizlik.",
+    sNick: "Nick / Takma Ad", sEmail: "E-posta (gizli kalır)", sText: "Taşına ne anlatmak istiyorsun?",
+    sBtn: "Taşa Bırak",
+    sNote: "E-posta adresiniz hiçbir zaman görünmez. Onay maili gelecek, ardından paylaşabilirsiniz.\nTüm paylaşımlar moderatör onayından sonra yayınlanır.",
+    volTitle: "Gönüllü Dinleyici Ol",
+    volDesc: "Psikoloji, sosyoloji veya sosyal hizmet alanında mısınız? Geduldstein'da gönüllü dinleyici olarak insanların yükünü hafifletmelerine katkıda bulunabilirsiniz.",
+    volRef: '"Gönüllü dinleyicilere AskMeAI Teknoloji Ltd. Şti. imzalı resmi referans mektubu sunulmaktadır."',
+    volBtn: "Başvur →",
+    fNote: "© 2026 PACDI · Tüm içerikler moderatör onayından geçer · Gizlilik dostu"
+  },
+  en: {
+    eyebrow: "Sabır · Geduld · Patience",
+    title: "Patience<em>stone</em>",
+    quote: '"Stones are silent. But they listen — for thousands of years."',
+    btnShare: "Tell Your Story", btnRead: "Discover the Patience Stone",
+    aLabel: "Tarih · Geschichte · History",
+    aTitle: "The Patience Stone: A Universal Tradition Thousands of Years Old",
+    aBody: '<p>In Turkish culture, there is a belief: A person finds a patience stone and tells it everything — joy, sorrow, anger, shame. The more they tell, the lighter the burden. And one day the stone cracks — at that moment the person knows they have been freed.</p><div class="pull-quote">"Tell until the stone cracks. If it cracks — you are free."</div><p>But the patience stone is not unique to Turkish tradition. Around the world, the same need has emerged: <strong>The human being needs something that listens without judgment.</strong></p>',
+    aBody2: '<p>Modern psychology confirms this tradition. <strong>Externalization</strong> — projecting a problem outward — is a core tool of cognitive behavioral therapy. Projecting a problem onto an object means separating it from the self and thinking about it more clearly.</p><p>Geduldstein brings this ancient tradition into the digital age. Without judgment. Anonymous. And silent.</p>',
+    pullquote: '"Tell until the stone cracks. If it cracks — you are free."',
+    cultures: [
+      {flag:"🇹🇷", name:"Turkish Tradition", text:"The patience stone — a silent friend that carries the burden and one day cracks."},
+      {flag:"🇮🇪", name:"Celtic Tradition", text:"Rituals of touching sacred stones to seek inner peace and make wishes."},
+      {flag:"🇯🇵", name:"Japanese Tradition", text:"Jizō statues — stone guardians dedicated to travelers and lost souls."},
+      {flag:"🌍", name:"African Traditions", text:"Stones believed close to ancestor spirits receive intentions and prayers."},
+      {flag:"🇮🇱", name:"Jewish Tradition", text:"Placing small stones on gravestones — a sign of memory and continuity."},
+      {flag:"🏔️", name:"Tibetan Tradition", text:"Mani stones — sacred stones inscribed with prayers, piled at mountain passes."}
+    ],
+    sTitle: "Tell your stone",
+    sSub: "Choose a name. Not your real one. Write — whatever you carry. No judgment, no expectation of solutions. Just listening stillness.",
+    sNick: "Nickname", sEmail: "Email (stays private)", sText: "What do you want to tell your stone?",
+    sBtn: "Leave it with the stone",
+    sNote: "Your email will never be visible. A confirmation will arrive, then you may share.\nAll posts are reviewed by a moderator before publication.",
+    volTitle: "Become a Volunteer Listener",
+    volDesc: "Are you studying psychology or sociology? As a volunteer listener at Geduldstein, you help people carry their burdens a little lighter.",
+    volRef: '"Volunteer listeners receive an official reference letter from AskMeAI Teknoloji Ltd. Şti."',
+    volBtn: "Apply →",
+    fNote: "© 2026 PACDI · All content is moderated · Privacy-friendly"
+  }
+};
+
+var currentLang = 'de';
+
+function setLang(lang) {
+  currentLang = lang;
+  var t = T[lang];
+  document.getElementById('h-eyebrow').innerText = t.eyebrow;
+  document.getElementById('h-title').innerHTML = t.title;
+  document.getElementById('h-quote').innerText = t.quote;
+  document.getElementById('h-btn-share').innerText = t.btnShare;
+  document.getElementById('h-btn-read').innerText = t.btnRead;
+  document.getElementById('a-label').innerText = t.aLabel;
+  document.getElementById('a-title').innerText = t.aTitle;
+  document.getElementById('a-body').innerHTML = t.aBody;
+  document.getElementById('a-body2').innerHTML = t.aBody2;
+  // Culture grid
+  var grid = document.getElementById('culture-grid');
+  grid.innerHTML = '';
+  t.cultures.forEach(function(c) {
+    grid.innerHTML += '<div class="culture-card"><span class="culture-flag">' + c.flag + '</span><div class="culture-name">' + c.name + '</div><div class="culture-text">' + c.text + '</div></div>';
+  });
+  document.getElementById('s-title').innerText = t.sTitle;
+  document.getElementById('s-sub').innerText = t.sSub;
+  document.getElementById('s-nick').placeholder = t.sNick;
+  document.getElementById('s-email').placeholder = t.sEmail;
+  document.getElementById('s-text').placeholder = t.sText;
+  document.getElementById('s-btn').innerText = t.sBtn;
+  document.getElementById('s-note').innerText = t.sNote;
+  document.getElementById('vol-title').innerText = t.volTitle;
+  document.getElementById('vol-desc').innerText = t.volDesc;
+  document.getElementById('vol-ref').innerText = t.volRef;
+  document.getElementById('vol-btn').innerText = t.volBtn;
+  document.getElementById('f-note').innerText = t.fNote;
+  ['btn-de','btn-tr','btn-en'].forEach(function(id){
+    document.getElementById(id).classList.remove('active');
+  });
+  document.getElementById('btn-'+lang).classList.add('active');
+  document.documentElement.lang = lang;
+}
+
+function submitStone(e) {
+  e.preventDefault();
+  var nick = document.getElementById('s-nick').value.trim();
+  var msgs = {
+    de: 'Danke, ' + nick + '. Dein Stein hat gehört. Bitte bestätige deine E-Mail.',
+    tr: 'Taşın duydu, ' + nick + '. E-postanı onayla.',
+    en: 'Your stone has heard you, ' + nick + '. Please confirm your email.'
+  };
+  alert(msgs[currentLang]);
+  e.target.reset();
+}
+
+var ul = (navigator.language || 'de').toLowerCase();
+if(ul.startsWith('tr')) setLang('tr');
+else if(ul.startsWith('en')) setLang('en');
+else setLang('de');
+</script>
+</body>
+</html>
