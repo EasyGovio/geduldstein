@@ -458,12 +458,12 @@ var T = {
     sSub: "Wähle einen Namen. Keinen echten. Schreib — was auch immer du trägst. Kein Urteil, keine Erwartung. Nur stille Stille.",
     sNick: "Nickname", sEmail: "E-Mail (bleibt privat)", sText: "Was möchtest du deinem Stein erzählen?",
     sBtn: "Dem Stein übergeben",
-    sNote: "Deine E-Mail bleibt unsichtbar. Nach der Bestätigung kannst du teilen.\nAlle Beiträge werden vor der Veröffentlichung moderiert.",
+    sNote: 'Deine E-Mail bleibt unsichtbar. Nach der Bestätigung kannst du teilen.<br>Alle Beiträge werden vor der Veröffentlichung moderiert.',
     volTitle: "Freiwilliger Zuhörer werden",
     volDesc: "Studierst du Psychologie oder Soziologie? Als freiwilliger Zuhörer bei Geduldstein trägst du dazu bei, dass Menschen Lasten leichter tragen.",
     volRef: '"Freiwillige erhalten ein offizielles Referenzschreiben von AskMeAI Teknoloji Ltd. Şti."',
     volBtn: "Bewerben →",
-    fNote: "© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · Alle Inhalte werden moderiert · Datenschutzfreundlich"
+    fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · Alle Inhalte werden moderiert · Datenschutzfreundlich'
   },
   tr: {
     eyebrow: "Sabır · Geduld · Patience",
@@ -487,12 +487,12 @@ var T = {
     sSub: "Bir takma ad seç. Gerçek değil. Yaz — ne taşırsan. Yargı yok, çözüm beklentisi yok. Sadece dinleyen bir sessizlik.",
     sNick: "Nick / Takma Ad", sEmail: "E-posta (gizli kalır)", sText: "Taşına ne anlatmak istiyorsun?",
     sBtn: "Taşa Bırak",
-    sNote: "E-posta adresiniz hiçbir zaman görünmez. Onay maili gelecek, ardından paylaşabilirsiniz.\nTüm paylaşımlar moderatör onayından sonra yayınlanır.",
+    sNote: 'E-posta adresiniz hiçbir zaman görünmez. Onay maili gelecek, ardından paylaşabilirsiniz.<br>Tüm paylaşımlar moderatör onayından sonra yayınlanır.',
     volTitle: "Gönüllü Dinleyici Ol",
     volDesc: "Psikoloji, sosyoloji veya sosyal hizmet alanında mısınız? Geduldstein'da gönüllü dinleyici olarak insanların yükünü hafifletmelerine katkıda bulunabilirsiniz.",
     volRef: '"Gönüllü dinleyicilere AskMeAI Teknoloji Ltd. Şti. imzalı resmi referans mektubu sunulmaktadır."',
     volBtn: "Başvur →",
-    fNote: "© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · Tüm içerikler moderatör onayından geçer · Gizlilik dostu"
+    fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · Tüm içerikler moderatör onayından geçer · Gizlilik dostu'
   },
   en: {
     eyebrow: "Sabır · Geduld · Patience",
@@ -516,12 +516,12 @@ var T = {
     sSub: "Choose a name. Not your real one. Write — whatever you carry. No judgment, no expectation of solutions. Just listening stillness.",
     sNick: "Nickname", sEmail: "Email (stays private)", sText: "What do you want to tell your stone?",
     sBtn: "Leave it with the stone",
-    sNote: "Your email will never be visible. A confirmation will arrive, then you may share.\nAll posts are reviewed by a moderator before publication.",
+    sNote: 'Your email will never be visible. A confirmation will arrive, then you may share.<br>All posts are reviewed by a moderator before publication.',
     volTitle: "Become a Volunteer Listener",
     volDesc: "Are you studying psychology or sociology? As a volunteer listener at Geduldstein, you help people carry their burdens a little lighter.",
     volRef: '"Volunteer listeners receive an official reference letter from AskMeAI Teknoloji Ltd. Şti."',
     volBtn: "Apply →",
-    fNote: "© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · All content is moderated · Privacy-friendly"
+    fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · All content is moderated · Privacy-friendly'
   }
 };
 
@@ -551,12 +551,12 @@ function setLang(lang) {
   document.getElementById('s-email').placeholder = t.sEmail;
   document.getElementById('s-text').placeholder = t.sText;
   document.getElementById('s-btn').innerText = t.sBtn;
-  document.getElementById('s-note').innerText = t.sNote;
+  document.getElementById('s-note').innerHTML = t.sNote;
   document.getElementById('vol-title').innerText = t.volTitle;
   document.getElementById('vol-desc').innerText = t.volDesc;
   document.getElementById('vol-ref').innerText = t.volRef;
   document.getElementById('vol-btn').innerText = t.volBtn;
-  document.getElementById('f-note').innerText = t.fNote;
+  document.getElementById('f-note').innerHTML = t.fNote;
   ['btn-de','btn-tr','btn-en'].forEach(function(id){
     document.getElementById(id).classList.remove('active');
   });
@@ -576,12 +576,30 @@ function submitStone(e) {
   e.target.reset();
 }
 
-var ul = (navigator.language || navigator.userLanguage || '').toLowerCase();
+var ul = (navigator.language || 'de').toLowerCase();
 if(ul.startsWith('tr')) setLang('tr');
 else if(ul.startsWith('en')) setLang('en');
-else if(ul.startsWith('de')) setLang('de');
 else setLang('de');
 </script>
-<script src="crisis-filter.js"></script>
+
+
+<script>
+(function(){
+  var CL={de:[{name:"Telefonseelsorge",number:"0800 111 0 111",note:"24/7 kostenlos"},{name:"Nummer gegen Kummer",number:"0800 111 0 550",note:"24/7 kostenlos"}],tr:[{name:"ALO Psikiyatri Hattı",number:"182",note:"7/24 ücretsiz"}],en:[{name:"Befrienders Worldwide",number:"befrienders.org",note:"Global 24/7"}]};
+  var BW={suicide:{tr:["intihar","kendimi öldür","kendime zarar","ölmek istiyorum","yaşamak istemiyorum","kendimi asmak","zehir içeyim","hayatıma son"],de:["suizid","selbstmord","mich umbringen","ich will sterben","nicht mehr leben","tabletten schlucken"],en:["suicide","kill myself","end my life","want to die","hang myself","overdose"]},violence:{tr:["seni öldürürüm","kanını dökerim","bıçaklayacağım","bomba","herkesi öldüreceğim"],de:["ich töte dich","ich bringe dich um","bombe","alle töten"],en:["i will kill you","blow up","shoot everyone","bomb threat"]},hate:{tr:["zenci","göçmen defol","yabancı defol","ırkları temizlemek"],de:["ausländer raus","nazi","heil hitler","neger","untermensch"],en:["nigger","white power","ethnic cleansing","white supremacy"]},discrimination:{tr:["ibne","orospu","geri zekalı","gerizekalı"],de:["schwuchtel","hure","vollidiot","missgeburt"],en:["faggot","retard","subhuman"]},political:{tr:["pkk","darbe","hükümeti devir","cumhurbaşkanı öldür"],de:["staatsstreich","regierung stürzen","terroranschlag"],en:["kill the president","overthrow government","terrorist attack"]}};
+  var WW={tr:["artık dayanamıyorum","çok yalnızım","umudum yok","her şey boş","neden yaşıyorum","değersizim"],de:["ich halte es nicht mehr aus","keine hoffnung mehr","alles sinnlos","ich bin wertlos"],en:["can't take it anymore","no hope left","everything is pointless","i am worthless"]};
+  var MSG={block:{tr:"Bu içerik platformumuzun kurallarıyla bağdaşmıyor.",de:"Dieser Inhalt verstößt gegen unsere Plattformregeln.",en:"This content violates our platform rules."},crisis:{tr:"Zor bir an yaşıyor olabilirsin. Yalnız değilsin:",de:"Du scheinst eine schwere Zeit durchzumachen. Du bist nicht allein:",en:"You seem to be going through a difficult time. You are not alone:"}};
+  function dl(){var l=(navigator.language||'').toLowerCase();if(l.indexOf('tr')===0)return'tr';if(l.indexOf('en')===0)return'en';return'de';}
+  function nm(t){return t.toLowerCase().replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s').replace(/ı/g,'i').replace(/ö/g,'o').replace(/ç/g,'c').replace(/ä/g,'a').replace(/ß/g,'ss').replace(/[^a-z0-9\s]/g,' ');}
+  function cb(text){var t=nm(text);for(var c in BW){var L=BW[c];for(var l in L){var w=L[l];for(var i=0;i<w.length;i++){if(t.indexOf(nm(w[i]))!==-1)return true;}}}return false;}
+  function cw(text){var t=nm(text);for(var l in WW){var w=WW[l];for(var i=0;i<w.length;i++){if(t.indexOf(nm(w[i]))!==-1)return true;}}return false;}
+  function rm(){var o=document.getElementById('pf-m');if(o)o.remove();}
+  function sb(lang){rm();var m=document.createElement('div');m.id='pf-m';m.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;';m.innerHTML='<div style="background:#1a1a2e;border:1px solid #c0392b;border-radius:12px;padding:28px;max-width:480px;width:100%;text-align:center;"><div style="font-size:2rem;margin-bottom:12px;">🚫</div><p style="color:#e74c3c;font-size:1rem;margin-bottom:16px;line-height:1.6;">'+MSG.block[lang]+'</p><button onclick="document.getElementById(\'pf-m\').remove()" style="background:#c0392b;color:white;border:none;padding:10px 24px;border-radius:40px;cursor:pointer;">Kapat / Close</button></div>';document.body.appendChild(m);}
+  function sc(lang){rm();var lines=CL[lang]||CL.de;var lh=lines.map(function(l){return'<div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:10px;margin:6px 0;text-align:left;"><strong style="color:#f39c12;">'+l.name+'</strong><br><span style="color:#ecf0f1;">'+l.number+'</span></div>';}).join('');var m=document.createElement('div');m.id='pf-m';m.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.88);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;';m.innerHTML='<div style="background:#0d1b2a;border:1px solid #2980b9;border-radius:12px;padding:28px;max-width:520px;width:100%;"><div style="font-size:2rem;text-align:center;margin-bottom:12px;">💙</div><p style="color:#ecf0f1;margin-bottom:16px;text-align:center;">'+MSG.crisis[lang]+'</p>'+lh+'<a href="https://www.befrienders.org" target="_blank" style="display:block;text-align:center;margin-top:12px;color:#3498db;">🌍 befrienders.org</a><button onclick="document.getElementById(\'pf-m\').remove()" style="display:block;width:100%;margin-top:16px;background:#2980b9;color:white;border:none;padding:10px;border-radius:40px;cursor:pointer;">Devam Et / Continue</button></div>';document.body.appendChild(m);}
+  function at(el){var lang=dl();var tr=false;el.addEventListener('input',function(){if(cb(el.value)){el.value=el.value.slice(0,-1);if(!tr){tr=true;sb(lang);setTimeout(function(){tr=false;},3000);}}else if(cw(el.value)){sc(lang);}});var form=el.closest('form');if(form){form.addEventListener('submit',function(e){if(cb(el.value)){e.preventDefault();e.stopImmediatePropagation();sb(lang);return false;}},true);}}
+  function init(){var f=document.querySelectorAll('textarea,input[type="text"],input[type="email"]');for(var i=0;i<f.length;i++)at(f[i]);}
+  if(document.readyState==='complete'){setTimeout(init,200);}else{window.addEventListener('load',function(){setTimeout(init,200);});}
+})();
+</script>
 </body>
 </html>
