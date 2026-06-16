@@ -462,6 +462,7 @@ var T = {
     volTitle: "Freiwilliger Zuhörer werden",
     volDesc: "Studierst du Psychologie oder Soziologie? Als freiwilliger Zuhörer bei Geduldstein trägst du dazu bei, dass Menschen Lasten leichter tragen.",
     volRef: '"Freiwillige erhalten ein offizielles Referenzschreiben von AskMeAI Teknoloji Ltd. Şti."',
+    chips: ["🎓 Psychologiestudent","👥 Soziologie-Praktikant","🌿 Sozialarbeit","✍️ Spirituelle Beratung","🌍 Öffentlichkeitsarbeit"],
     volBtn: "Bewerben →",
     fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · Alle Inhalte werden moderiert · Datenschutzfreundlich'
   },
@@ -491,6 +492,7 @@ var T = {
     volTitle: "Gönüllü Dinleyici Ol",
     volDesc: "Psikoloji, sosyoloji veya sosyal hizmet alanında mısınız? Geduldstein'da gönüllü dinleyici olarak insanların yükünü hafifletmelerine katkıda bulunabilirsiniz.",
     volRef: '"Gönüllü dinleyicilere AskMeAI Teknoloji Ltd. Şti. imzalı resmi referans mektubu sunulmaktadır."',
+    chips: ["🎓 Psikoloji Öğrencisi","👥 Sosyoloji Stajyeri","🌿 Sosyal Hizmet","✍️ Manevi Danışman","🌍 Halkla İlişkiler"],
     volBtn: "Başvur →",
     fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · Tüm içerikler moderatör onayından geçer · Gizlilik dostu'
   },
@@ -520,6 +522,7 @@ var T = {
     volTitle: "Become a Volunteer Listener",
     volDesc: "Are you studying psychology or sociology? As a volunteer listener at Geduldstein, you help people carry their burdens a little lighter.",
     volRef: '"Volunteer listeners receive an official reference letter from AskMeAI Teknoloji Ltd. Şti."',
+    chips: ["🎓 Psychology Student","👥 Sociology Intern","🌿 Social Work","✍️ Spiritual Counselor","🌍 Public Relations"],
     volBtn: "Apply →",
     fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · All content is moderated · Privacy-friendly'
   }
@@ -553,6 +556,10 @@ function setLang(lang) {
   document.getElementById('s-btn').innerText = t.sBtn;
   document.getElementById('s-note').innerHTML = t.sNote;
   document.getElementById('vol-title').innerText = t.volTitle;
+  var chipEls = document.querySelectorAll('.trigger-chips .chip');
+  if(chipEls && t.chips){for(var ci=0;ci<chipEls.length;ci++){if(t.chips[ci])chipEls[ci].innerText=t.chips[ci];}}
+  var chipEls = document.querySelectorAll('.trigger-chips .chip');
+  if(chipEls && t.chips) { for(var ci=0;ci<chipEls.length;ci++) { if(t.chips[ci]) chipEls[ci].innerText = t.chips[ci]; } }
   document.getElementById('vol-desc').innerText = t.volDesc;
   document.getElementById('vol-ref').innerText = t.volRef;
   document.getElementById('vol-btn').innerText = t.volBtn;
