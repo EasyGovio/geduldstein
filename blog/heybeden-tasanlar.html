@@ -8,6 +8,10 @@
   <meta property="og:title" id="og-title" content="Was aus der Tasche überläuft">
   <meta property="og:description" id="og-desc" content="Von Anatolien bis Japan, von Irland bis Tibet — eine universelle Reise über die Tradition des Geduldsteins und das menschliche Bedürfnis zu erzählen.">
   <link rel="canonical" href="https://geduldstein.de/blog/heybeden-tasanlar.html">
+  <link rel="alternate" hreflang="de" href="https://geduldstein.de/blog/heybeden-tasanlar.html">
+  <link rel="alternate" hreflang="tr" href="https://geduldstein.de/blog/heybeden-tasanlar.html">
+  <link rel="alternate" hreflang="en" href="https://geduldstein.de/blog/heybeden-tasanlar.html">
+  <link rel="alternate" hreflang="x-default" href="https://geduldstein.de/blog/heybeden-tasanlar.html">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8426936740213369" crossorigin="anonymous"></script>
   <style>
@@ -33,7 +37,7 @@
     .lang-bar{display:flex;gap:0.4rem;}
     .lang-btn{background:none;border:1px solid rgba(255,255,255,0.1);color:var(--muted);font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.3rem 0.7rem;cursor:pointer;transition:all 0.25s;}
     .lang-btn:hover,.lang-btn.active{color:var(--accent);border-color:var(--accent);background:var(--accent-lt);}
-    .article-wrap{max-width:720px;margin:0 auto;padding:7rem 1.5rem 5rem;}
+    .article-wrap{max-width:720px;margin:0 auto;padding:8.5rem 1.5rem 5rem;}
     .article-eyebrow{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;display:block;}
     h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:300;font-style:italic;line-height:1.15;margin-bottom:1.5rem;color:var(--cream);}
     h2{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:#8B6F5E;margin:2.5rem 0 0.8rem;letter-spacing:0.04em;}
@@ -49,7 +53,10 @@
     .footer-note{font-size:0.72rem;color:var(--muted);}
     
     @media(max-width:600px){nav{padding:1rem 1.2rem;}.article-wrap{padding:6rem 1rem 3rem;}}
-  </style>
+  
+    #manifesto-banner{background:rgba(139,111,94,0.08);border-bottom:1px solid rgba(139,111,94,0.2);padding:0.5rem 2rem;text-align:center;font-family:'Source Serif 4',Georgia,serif;font-size:0.75rem;font-style:italic;color:rgba(255,255,255,0.65);position:sticky;top:0;z-index:99;backdrop-filter:blur(12px);}
+    #manifesto-banner a{color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;}
+    </style>
 </head>
 <body class="lang-de" id="body-root">
 
@@ -64,6 +71,12 @@
     <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
   </div>
 </nav>
+
+<div id="manifesto-banner">
+  <span data-lang="de">“Tränen haben keine Nationalität. Lachen hat keine Religion.” <a href="https://geduldstein.de/blog/neden-olmasin.html">Manifest lesen →</a></span>
+  <span data-lang="tr">“Gözyaşının milliyeti yok. Kahkahanın dini yok.” <a href="https://geduldstein.de/blog/neden-olmasin.html">Manifestoyu oku →</a></span>
+  <span data-lang="en">“Tears have no nationality. Laughter has no religion.” <a href="https://geduldstein.de/blog/neden-olmasin.html">Read the manifesto →</a></span>
+</div>
 
 <div class="article-wrap">
 
@@ -149,36 +162,36 @@
 
 <footer>
   <span class="footer-logo">Geduldstein</span>
-  <span class="footer-note" id="f-note">© 2026 PACDI · <a href='https://geduldstein.de/legal.html' style='color:inherit;opacity:0.7;'>Impressum &amp; Datenschutz</a> · Alle Inhalte werden moderiert</span>
+  <span class="footer-note" id="f-note"></span>
 </footer>
 
 <script>
-  var fN = {
-    de: ["C 2026 PACDI", "https://geduldstein.de/legal.html", "Impressum &amp; Datenschutz", "Alle Inhalte werden moderiert"],
-    tr: ["C 2026 PACDI", "https://geduldstein.de/legal.html", "Kunye &amp; Gizlilik", "Tum icerikler moderator onayindan gecer"],
-    en: ["C 2026 PACDI", "https://geduldstein.de/legal.html", "Imprint &amp; Privacy", "All content is moderated"]
+  var _ft = {
+    de: "\u00a9 2026 PACDI \u00b7 <a href=\"https://geduldstein.de/legal.html\" style=\"color:inherit;opacity:0.7;\">Impressum &amp; Datenschutz</a> \u00b7 Alle Inhalte werden moderiert",
+    tr: "\u00a9 2026 PACDI \u00b7 <a href=\"https://geduldstein.de/legal.html\" style=\"color:inherit;opacity:0.7;\">K\u00fcnye &amp; Gizlilik</a> \u00b7 Tüm içerikler moderatör onayından geçer",
+    en: "\u00a9 2026 PACDI \u00b7 <a href=\"https://geduldstein.de/legal.html\" style=\"color:inherit;opacity:0.7;\">Imprint &amp; Privacy</a> \u00b7 All content is moderated"
   };
-  function getFooter(lang) {
-    var d = fN[lang];
-    return d[0] + " · <a href=\"" + d[1] + "\" style=\"color:inherit;opacity:0.7;\">" + d[2] + "</a> · " + d[3];
-  }
-  var backLabels = {de: "← Startseite", tr: "← Ana Sayfa", en: "← Home"};
-
+  var _bl = {de: "\u2190 Startseite", tr: "\u2190 Ana Sayfa", en: "\u2190 Home"};
+  var _pageT = {de: {}, tr: {}, en: {}};
   function setLang(lang) {
     document.getElementById("body-root").className = "lang-" + lang;
     document.getElementById("html-root").lang = lang;
     ["de","tr","en"].forEach(function(l) {
       document.getElementById("btn-" + l).classList.toggle("active", l === lang);
     });
-    document.getElementById("f-note").innerHTML = getFooter(lang);
-    document.getElementById("nav-back").innerText = backLabels[lang];
+    document.getElementById("f-note").innerHTML = _ft[lang] || _ft.de;
+    var nb = document.getElementById("nav-back"); if (nb) nb.innerText = _bl[lang] || _bl.de;
+    var t = _pageT[lang] || {};
+    Object.keys(t).forEach(function(id) { var el = document.getElementById(id); if (el) el.innerText = t[id]; });
+    try { localStorage.setItem("pacdi-lang", lang); } catch(e) {}
   }
-
   (function() {
-    var l = (navigator.language || "de").toLowerCase();
-    var lang = l.indexOf("tr") === 0 ? "tr" : l.indexOf("en") === 0 ? "en" : "de";
+    var saved; try { saved = localStorage.getItem("pacdi-lang"); } catch(e) {}
+    var nav = (navigator.language || "de").toLowerCase();
+    var lang = saved || (nav.indexOf("tr") === 0 ? "tr" : nav.indexOf("en") === 0 ? "en" : "de");
     setLang(lang);
   })();
 </script>
+<script src="/crisis-filter.js"></script>
 </body>
 </html>

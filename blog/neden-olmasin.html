@@ -8,6 +8,10 @@
   <meta property="og:title" id="og-title" content="Warum nicht?">
   <meta property="og:description" id="og-desc" content="Das Manifest von Geduldstein, Beichtraum und Onkelsorgen. Erzählen heilt — über Diaspora, Einsamkeit und digitale Solidarität.">
   <link rel="canonical" href="https://geduldstein.de/blog/neden-olmasin.html">
+  <link rel="alternate" hreflang="de" href="https://geduldstein.de/blog/neden-olmasin.html">
+  <link rel="alternate" hreflang="tr" href="https://geduldstein.de/blog/neden-olmasin.html">
+  <link rel="alternate" hreflang="en" href="https://geduldstein.de/blog/neden-olmasin.html">
+  <link rel="alternate" hreflang="x-default" href="https://geduldstein.de/blog/neden-olmasin.html">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8426936740213369" crossorigin="anonymous"></script>
   <style>
@@ -123,36 +127,36 @@
 
 <footer>
   <span class="footer-logo">Geduldstein</span>
-  <span class="footer-note" id="f-note">© 2026 PACDI · <a href='https://geduldstein.de/legal.html' style='color:inherit;opacity:0.7;'>Impressum &amp; Datenschutz</a> · Alle Inhalte werden moderiert</span>
+  <span class="footer-note" id="f-note"></span>
 </footer>
 
 <script>
-  var fN = {
-    de: ["C 2026 PACDI", "https://geduldstein.de/legal.html", "Impressum &amp; Datenschutz", "Alle Inhalte werden moderiert"],
-    tr: ["C 2026 PACDI", "https://geduldstein.de/legal.html", "Kunye &amp; Gizlilik", "Tum icerikler moderator onayindan gecer"],
-    en: ["C 2026 PACDI", "https://geduldstein.de/legal.html", "Imprint &amp; Privacy", "All content is moderated"]
+  var _ft = {
+    de: "\u00a9 2026 PACDI \u00b7 <a href=\"https://geduldstein.de/legal.html\" style=\"color:inherit;opacity:0.7;\">Impressum &amp; Datenschutz</a> \u00b7 Alle Inhalte werden moderiert",
+    tr: "\u00a9 2026 PACDI \u00b7 <a href=\"https://geduldstein.de/legal.html\" style=\"color:inherit;opacity:0.7;\">K\u00fcnye &amp; Gizlilik</a> \u00b7 Tüm içerikler moderatör onayından geçer",
+    en: "\u00a9 2026 PACDI \u00b7 <a href=\"https://geduldstein.de/legal.html\" style=\"color:inherit;opacity:0.7;\">Imprint &amp; Privacy</a> \u00b7 All content is moderated"
   };
-  function getFooter(lang) {
-    var d = fN[lang];
-    return d[0] + " · <a href=\"" + d[1] + "\" style=\"color:inherit;opacity:0.7;\">" + d[2] + "</a> · " + d[3];
-  }
-  var backLabels = {de: "← Startseite", tr: "← Ana Sayfa", en: "← Home"};
-
+  var _bl = {de: "\u2190 Startseite", tr: "\u2190 Ana Sayfa", en: "\u2190 Home"};
+  var _pageT = {de: {}, tr: {}, en: {}};
   function setLang(lang) {
     document.getElementById("body-root").className = "lang-" + lang;
     document.getElementById("html-root").lang = lang;
     ["de","tr","en"].forEach(function(l) {
       document.getElementById("btn-" + l).classList.toggle("active", l === lang);
     });
-    document.getElementById("f-note").innerHTML = getFooter(lang);
-    document.getElementById("nav-back").innerText = backLabels[lang];
+    document.getElementById("f-note").innerHTML = _ft[lang] || _ft.de;
+    var nb = document.getElementById("nav-back"); if (nb) nb.innerText = _bl[lang] || _bl.de;
+    var t = _pageT[lang] || {};
+    Object.keys(t).forEach(function(id) { var el = document.getElementById(id); if (el) el.innerText = t[id]; });
+    try { localStorage.setItem("pacdi-lang", lang); } catch(e) {}
   }
-
   (function() {
-    var l = (navigator.language || "de").toLowerCase();
-    var lang = l.indexOf("tr") === 0 ? "tr" : l.indexOf("en") === 0 ? "en" : "de";
+    var saved; try { saved = localStorage.getItem("pacdi-lang"); } catch(e) {}
+    var nav = (navigator.language || "de").toLowerCase();
+    var lang = saved || (nav.indexOf("tr") === 0 ? "tr" : nav.indexOf("en") === 0 ? "en" : "de");
     setLang(lang);
   })();
 </script>
+<script src="/crisis-filter.js"></script>
 </body>
 </html>
