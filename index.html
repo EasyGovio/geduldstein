@@ -5,7 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Geduldstein | Der Stein, der zuhört</title>
   <meta name="description" content="Ein uraltes Ritual. Ein stiller Zuhörer. Erzähl ihm, was du nicht mehr tragen kannst.">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8426936740213369" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8426936740213369" crossorigin="anonymous">
+  var _blogT = {
+    de: {label:"Aus dem Archiv", t1:"Der Stein meiner Großmutter", t2:"Was aus der Tasche überläuft", t3:"Warum nicht?", read:"Lesen →"},
+    tr: {label:"Arşivden", t1:"Büyükannemin Taşı", t2:"Heybeden Taşanlar", t3:"Neden Olmasın?", read:"Oku →"},
+    en: {label:"From the Archive", t1:"My Grandmother's Stone", t2:"What Spills from the Saddlebag", t3:"Why Not?", read:"Read →"}
+  };
+  function _updateBlog(lang) {
+    var t = _blogT[lang]; if (!t) return;
+    var m = {"blog-label":t.label,"blog-title-1":t.t1,"blog-read-1":t.read,"blog-title-2":t.t2,"blog-read-2":t.read,"blog-title-3":t.t3,"blog-read-3":t.read};
+    Object.keys(m).forEach(function(id){var el=document.getElementById(id);if(el)el.innerText=m[id];});
+  }
+</script>
   <link rel="canonical" href="https://geduldstein.de/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -320,44 +331,36 @@
 
 <!-- BLOG YAZILARI -->
 <div style="max-width:740px;margin:0 auto;padding:0 2rem 4rem;">
-  <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay);display:block;margin-bottom:1.5rem;">
-    <span data-lang-inline="de">Aus dem Archiv</span><span data-lang-inline="tr">Arşivden</span><span data-lang-inline="en">From the Archive</span>
-  </span>
+  <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay);display:block;margin-bottom:1.5rem;" id="blog-label">Aus dem Archiv</span>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
 
     <a href="blog/buyukannemin-tasi.html" style="display:block;background:var(--earth2);border:1px solid var(--border);padding:1.3rem;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--clay)'" onmouseout="this.style.borderColor='var(--border)'">
       <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay);margin-bottom:0.5rem;">🪨</div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--cream);line-height:1.3;margin-bottom:0.6rem;">
-        <span data-lang-inline="de">Der Stein meiner Großmutter</span>
-        <span data-lang-inline="tr">Büyükannemin Taşı</span>
-        <span data-lang-inline="en">My Grandmother's Stone</span>
+        <span id="blog-title-1">Der Stein meiner Großmutter</span>
       </div>
       <div style="font-size:0.72rem;color:var(--muted);">
-        <span data-lang-inline="de">Lesen →</span><span data-lang-inline="tr">Oku →</span><span data-lang-inline="en">Read →</span>
+        <span id="blog-read-1">Lesen →</span>
       </div>
     </a>
 
     <a href="blog/heybeden-tasanlar.html" style="display:block;background:var(--earth2);border:1px solid var(--border);padding:1.3rem;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--clay)'" onmouseout="this.style.borderColor='var(--border)'">
       <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay);margin-bottom:0.5rem;">🧳</div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--cream);line-height:1.3;margin-bottom:0.6rem;">
-        <span data-lang-inline="de">Was aus der Tasche überläuft</span>
-        <span data-lang-inline="tr">Heybeden Taşanlar</span>
-        <span data-lang-inline="en">What Spills from the Saddlebag</span>
+        <span id="blog-title-2">Was aus der Tasche überläuft</span>
       </div>
       <div style="font-size:0.72rem;color:var(--muted);">
-        <span data-lang-inline="de">Lesen →</span><span data-lang-inline="tr">Oku →</span><span data-lang-inline="en">Read →</span>
+        <span id="blog-read-2">Lesen →</span>
       </div>
     </a>
 
     <a href="blog/neden-olmasin.html" style="display:block;background:var(--earth2);border:1px solid var(--border);padding:1.3rem;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--clay)'" onmouseout="this.style.borderColor='var(--border)'">
       <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay);margin-bottom:0.5rem;">✨</div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--cream);line-height:1.3;margin-bottom:0.6rem;">
-        <span data-lang-inline="de">Warum nicht?</span>
-        <span data-lang-inline="tr">Neden Olmasın?</span>
-        <span data-lang-inline="en">Why Not?</span>
+        <span id="blog-title-3">Warum nicht?</span>
       </div>
       <div style="font-size:0.72rem;color:var(--muted);">
-        <span data-lang-inline="de">Lesen →</span><span data-lang-inline="tr">Oku →</span><span data-lang-inline="en">Read →</span>
+        <span id="blog-read-3">Lesen →</span>
       </div>
     </a>
 
@@ -579,6 +582,7 @@ var currentLang = 'de';
 
 function setLang(lang) {
   currentLang = lang;
+    _updateBlog(lang);
   var t = T[lang];
   document.getElementById('h-eyebrow').innerText = t.eyebrow;
   document.getElementById('h-title').innerHTML = t.title;
