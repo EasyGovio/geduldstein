@@ -600,9 +600,9 @@ var currentLang = 'de';
 function setLang(lang) {
   currentLang = lang;
   var br=document.getElementById("body-root"); if(br) br.className="lang-"+lang;
-  var mt=document.getElementById("manifesto-text"); 
-  if(mt) mt.innerHTML = (_banner && _banner[lang]) || _banner.de || "";
-  _updateBlog(lang);
+  var mt=document.getElementById("manifesto-text"); if(mt) mt.innerHTML=(_banner&&_banner[lang])||"";
+  var nb=document.getElementById("nav-back"); if(nb) nb.innerText=_bl[lang]||_bl.de;
+    _updateBlog(lang);
   var t = T[lang];
   document.getElementById('h-eyebrow').innerText = t.eyebrow;
   document.getElementById('h-title').innerHTML = t.title;
@@ -628,15 +628,7 @@ function setLang(lang) {
   document.getElementById('s-note').innerHTML = t.sNote;
   document.getElementById('vol-title').innerText = t.volTitle;
   var chipEls = document.querySelectorAll('.trigger-chips .chip');
-  if(chipEls && t.chips) { for(var ci=0;ci<chipEls.length;ci++) { if(t.chips[ci]) chipEls[ci].innerText = t.chips[ci]; } }
-  document.getElementById('vol-desc').innerText = t.volDesc;
-  document.getElementById('vol-ref').innerText = t.volRef;
-  document.getElementById('vol-btn').innerText = t.volBtn;
-  document.getElementById('f-note').innerHTML = t.fNote;
-  ['btn-de','btn-tr','btn-en'].forEach(function(id){
-    document.getElementById(id).classList.remove('active');
-  });
-  document.getElementById('btn-'+lang).classList.add('active');
+  if(chipEls && t.chips){for(var ci=0;ci<chipEls.length;ci++){if(t.chips[ci])chipEls[ci].innerText=t.chips[ci];}}  document.getElementById('btn-'+lang).classList.add('active');
   document.documentElement.lang = lang;
 }
 
@@ -657,6 +649,8 @@ if(ul.startsWith('tr')) setLang('tr');
 else if(ul.startsWith('en')) setLang('en');
 else setLang('de');
 </script>
+
+
 
 <script src="/crisis-filter.js"></script>
 </body>
