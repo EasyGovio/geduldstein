@@ -320,7 +320,7 @@
     #manifesto-banner a:hover {opacity:0.8;}
   </style>
 </head>
-<body>
+<body class="lang-de" id="body-root">
 
 <nav>
   <a href="#" class="nav-logo">Geduldstein</a>
@@ -330,9 +330,8 @@
     <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
   </div>
 </nav>
+<div id="manifesto-banner" style="background:rgba(139,111,94,0.1);border-bottom:1px solid rgba(139,111,94,0.2);padding:0.5rem 2rem;text-align:center;font-family:'Source Serif 4',Georgia,serif;font-size:0.75rem;font-style:italic;color:rgba(255,255,255,0.72);position:relative;z-index:98;"><span id="manifesto-text"></span></div>
 
-<!-- MANIFESTO BANNER -->
-<div id="manifesto-banner" style="background:rgba(139,111,94,0.08);border-bottom:1px solid rgba(139,111,94,0.2);padding:0.55rem 2rem;text-align:center;font-family:'Source Serif 4',Georgia,serif;font-size:0.78rem;font-style:italic;color:rgba(255,255,255,0.7);position:sticky;top:0;z-index:99;backdrop-filter:blur(12px);"><span id="manifesto-text"></span></div>
 
 <!-- HERO -->
 
@@ -440,7 +439,7 @@
   </div>
 
   <div class="article-body" id="a-body2">
-    <p>Modern psikoloji de bu geleneği doğrulamaktadır. <strong>Eksternalizasyon</strong> — yani sorunu "dışarı çıkarma" — bilişsel davranış terapisinin temel araçlarından biridir. Sorunu bir nesneye, bir sayfaya, bir taşa yansıtmak; onu "ben"den ayırmak ve böylece üzerinde daha net düşünebilmek demektir.</p>
+    <p>Modern psikoloji’de bu geleneği doğrulamaktadır. <strong>Eksternalizasyon</strong> — yani sorunu "dışarı çıkarma" — bilişsel davranış terapisinin temel araçlarından biridir. Sorunu bir nesneye, bir sayfaya, bir taşa yansıtmak; onu "ben"den ayırmak ve böylece üzerinde daha net düşünebilmek demektir.</p>
     <p>Geduldstein, bu kadim geleneği dijital çağa taşır. Yargısız. Anonim. Ve sessiz.</p>
   </div>
 </section>
@@ -537,7 +536,7 @@ var T = {
     aLabel: "Tarih · Geschichte · History",
     aTitle: "Sabır Taşı: Binlerce Yıllık Evrensel Bir Gelenek",
     aBody: '<p>Türk kültüründe bir inanış vardır: İnsan, içini dökmek için bir sabır taşı bulur. Ona anlatır — sevincini, kederini, öfkesini, utancını. Taş sustukça yük hafifler. Ve bir gün taş çatlar — o an insan anlar ki içini dökmüş, arınmıştır.</p><div class="pull-quote">"Taş çatlayana kadar anlat. Taş çatlarsa — sen kurtuldun."</div><p>Ama sabır taşı yalnızca Türk geleneğine özgü değildir. Dünyanın dört bir yanında aynı ihtiyaç ortaya çıkmıştır: <strong>İnsanın, yargılanmadan dinlendiği bir nesneye ya da mekâna ihtiyacı vardır.</strong></p>',
-    aBody2: '<p>Modern psikoloji de bu geleneği doğrulamaktadır. <strong>Eksternalizasyon</strong> — sorunu dışarı çıkarma — bilişsel davranış terapisinin temel araçlarından biridir. Sorunu bir nesneye yansıtmak; onu "ben"den ayırmak ve üzerinde daha net düşünebilmek demektir.</p><p>Geduldstein, bu kadim geleneği dijital çağa taşır. Yargısız. Anonim. Ve sessiz.</p>',
+    aBody2: '<p>Modern psikoloji’de bu geleneği doğrulamaktadır. <strong>Eksternalizasyon</strong> — sorunu dışarı çıkarma — bilişsel davranış terapisinin temel araçlarından biridir. Sorunu bir nesneye yansıtmak; onu "ben"den ayırmak ve üzerinde daha net düşünebilmek demektir.</p><p>Geduldstein, bu kadim geleneği dijital çağa taşır. Yargısız. Anonim. Ve sessiz.</p>',
     pullquote: '"Taş çatlayana kadar anlat. Taş çatlarsa — sen kurtuldun."',
     cultures: [
       {flag:"🇹🇷", name:"Türk Geleneği", text:"Sabır taşı — içini döktükçe yükü alan, zamanı gelince çatlayan sessiz dost."},
@@ -601,6 +600,8 @@ var _pageT = {
 };
 function setLang(lang) {
   currentLang = lang;
+  var br=document.getElementById("body-root"); if(br) br.className="lang-"+lang;
+  var mt=document.getElementById("manifesto-text"); if(mt) mt.innerHTML=(_banner&&_banner[lang])||"";
   var mt=document.getElementById("manifesto-text"); if(mt&&_banner) mt.innerHTML=_banner[lang]||_banner.de;
   var nb=document.getElementById("nav-back"); if(nb) nb.innerText=_bl[lang]||_bl.de;
     _updateBlog(lang);
