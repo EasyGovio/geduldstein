@@ -314,6 +314,9 @@
       .culture-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 2rem 1.2rem; flex-direction: column; text-align: center; }
     }
+  
+    #manifesto-banner a {color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;border-bottom:1px solid rgba(139,111,94,0.2);}
+    #manifesto-banner a:hover {opacity:0.8;}
   </style>
 </head>
 <body>
@@ -326,6 +329,13 @@
     <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
   </div>
 </nav>
+
+<!-- MANIFESTO BANNER -->
+<div id="manifesto-banner" style="background:rgba(139,111,94,0.08);border-bottom:1px solid rgba(139,111,94,0.2);padding:0.55rem 2rem;text-align:center;font-family:'Source Serif 4',Georgia,serif;font-size:0.78rem;font-style:italic;color:rgba(255,255,255,0.7);position:sticky;top:0;z-index:99;backdrop-filter:blur(12px);">
+  <span data-lang="de">"Tränen haben keine Nationalität. Lachen hat keine Religion." <a href="https://geduldstein.de/blog/neden-olmasin.html">Manifest lesen →</a></span>
+  <span data-lang="tr">"Gözyaşının milliyeti yok. Kahkahanın dini yok." <a href="https://geduldstein.de/blog/neden-olmasin.html">Manifestoyu oku →</a></span>
+  <span data-lang="en">"Tears have no nationality. Laughter has no religion." <a href="https://geduldstein.de/blog/neden-olmasin.html">Read the manifesto →</a></span>
+</div>
 
 <!-- HERO -->
 
@@ -481,10 +491,16 @@
 
 <footer>
   <span class="footer-logo">Geduldstein</span>
-  <span class="footer-note" id="f-note">© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · Tüm içerikler moderatör onayından geçer · Gizlilik dostu</span>
+  <span class="footer-note" id="f-note"></span>
 </footer>
 
 <script>
+  var _ft = {
+    de: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://geduldstein.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">Impressum &amp; Datenschutz</a> \u00b7 Alle Inhalte werden moderiert · Datenschutzfreundlich",
+    tr: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://geduldstein.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">K\u00fcnye &amp; Gizlilik</a> \u00b7 Tüm içerikler moderatör onayından geçer · Gizlilik dostu",
+    en: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://geduldstein.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">Imprint &amp; Privacy</a> \u00b7 All content is moderated · Privacy-friendly"
+  };
+
 var T = {
   de: {
     eyebrow: "Sabır · Geduld · Patience",
@@ -580,6 +596,12 @@ var T = {
 
 var currentLang = 'de';
 
+
+var _pageT = {
+  de: {"blog-label": "Aus dem Archiv", "blog-title-1": "Der Stein meiner Großmutter", "blog-read-1": "Lesen →", "blog-title-2": "Was aus der Tasche überläuft", "blog-read-2": "Lesen →", "blog-title-3": "Warum nicht?", "blog-read-3": "Lesen →"},
+  tr: {"blog-label": "Arşivden", "blog-title-1": "Büyükannemin Taşı", "blog-read-1": "Oku →", "blog-title-2": "Heybeden Taşanlar", "blog-read-2": "Oku →", "blog-title-3": "Neden Olmasın?", "blog-read-3": "Oku →"},
+  en: {"blog-label": "From the Archive", "blog-title-1": "My Grandmother's Stone", "blog-read-1": "Read →", "blog-title-2": "What Spills from the Saddlebag", "blog-read-2": "Read →", "blog-title-3": "Why Not?", "blog-read-3": "Read →"}
+};
 function setLang(lang) {
   currentLang = lang;
     _updateBlog(lang);
@@ -659,5 +681,6 @@ else setLang('de');
   if(document.readyState==='complete'){setTimeout(init,200);}else{window.addEventListener('load',function(){setTimeout(init,200);});}
 })();
 </script>
+<script src="/crisis-filter.js"></script>
 </body>
 </html>
