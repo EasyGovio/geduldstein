@@ -36,7 +36,6 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -64,7 +63,6 @@
       background: var(--clay-lt);
     }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex; flex-direction: column;
@@ -83,7 +81,6 @@
       pointer-events: none;
     }
 
-    /* Taş animasyonu */
     .stone-glyph {
       font-size: 4rem; margin-bottom: 2rem;
       display: block;
@@ -143,13 +140,11 @@
     }
     .btn-outline:hover { border-color: var(--clay); background: var(--clay-lt); }
 
-    /* DIVIDER */
     .divider {
       width: 40px; height: 1px; background: var(--border);
       margin: 4rem auto;
     }
 
-    /* ARTICLE */
     .article-section {
       max-width: 740px; margin: 0 auto; padding: 2rem 2rem 5rem;
     }
@@ -200,7 +195,6 @@
     }
     .culture-text { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
 
-    /* SHARE SECTION */
     .share-section {
       background: var(--earth2);
       border-top: 1px solid var(--border);
@@ -236,7 +230,6 @@
       color: var(--muted); margin-top: 0.8rem; line-height: 1.6;
     }
 
-    /* VOLUNTEER */
     .vol-section {
       background: var(--forest-lt);
       border-top: 1px solid rgba(58,82,64,0.3);
@@ -273,7 +266,6 @@
       color: var(--sand); margin: 1.2rem 0 1.8rem;
     }
 
-    /* FOOTER */
     footer {
       padding: 2.5rem 3rem;
       border-top: 1px solid var(--border);
@@ -296,6 +288,31 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* MANIFESTO BANNER — düzeltildi */
+    #manifesto-banner {
+      background: rgba(139,111,94,0.1);
+      border-bottom: 1px solid rgba(139,111,94,0.2);
+      padding: 0.5rem 2rem;
+      text-align: center;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.75rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.72);
+      position: relative;
+      z-index: 98;
+    }
+    #manifesto-banner a {
+      color: #8B6F5E;
+      text-decoration: none;
+      font-style: normal;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      margin-left: 0.8rem;
+      border-bottom: 1px solid rgba(139,111,94,0.2);
+    }
+    #manifesto-banner a:hover { opacity: 0.8; }
+
     @media (max-width: 680px) {
       nav { padding: 1rem 1.2rem; }
       .hero { padding: 7rem 1.5rem 4rem; }
@@ -303,9 +320,6 @@
       .culture-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 2rem 1.2rem; flex-direction: column; text-align: center; }
     }
-  
-    #manifesto-banner a {color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;border-bottom:1px solid rgba(139,111,94,0.2);}
-    #manifesto-banner a:hover {opacity:0.8;}
   </style>
 </head>
 <body class="lang-de" id="body-root">
@@ -318,10 +332,8 @@
     <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
   </div>
 </nav>
-<div id="manifesto-banner" style="background:rgba(139,111,94,0.1);border-bottom:1px solid rgba(139,111,94,0.2);padding:0.5rem 2rem;text-align:center;font-family:'Source Serif 4',Georgia,serif;font-size:0.75rem;font-style:italic;color:rgba(255,255,255,0.72);position:relative;z-index:98;"><span id="manifesto-text"></span></div>
 
-
-<!-- HERO -->
+<div id="manifesto-banner"><span id="manifesto-text"></span></div>
 
 <!-- BLOG YAZILARI -->
 <div style="max-width:740px;margin:0 auto;padding:0 2rem 4rem;">
@@ -365,9 +377,7 @@
   <span class="stone-glyph">🪨</span>
   <span class="hero-eyebrow" id="h-eyebrow">Sabır · Geduld · Patience</span>
   <h1 class="hero-title" id="h-title">Geduld<em>stein</em></h1>
-  <p class="hero-quote" id="h-quote">
-    "Steine schweigen. Aber sie hören zu — seit Jahrtausenden."
-  </p>
+  <p class="hero-quote" id="h-quote">"Steine schweigen. Aber sie hören zu — seit Jahrtausenden."</p>
   <div class="hero-actions">
     <a href="#anlatmak" class="btn-primary" id="h-btn-share">Anlat</a>
     <a href="#tarih" class="btn-outline" id="h-btn-read">Sabır Taşını Keşfet</a>
@@ -376,89 +386,32 @@
 
 <div class="divider"></div>
 
-<!-- ARTICLE -->
 <section class="article-section" id="tarih">
   <span class="section-label" id="a-label">Tarih · Geschichte · History</span>
-  <h2 class="article-title" id="a-title">
-    Sabır Taşı: Binlerce Yıllık Evrensel Bir Gelenek
-  </h2>
-  <div class="article-body" id="a-body">
-    <p>Türk kültüründe bir inanış vardır: İnsan, içini dökmek için bir sabır taşı bulur. Ona anlatır — sevincini, kederini, öfkesini, utancını. Taş sustukça yük hafifler. Ve bir gün taş çatlar — o an insan anlar ki içini dökmüş, arınmıştır.</p>
-
-    <div class="pull-quote" id="a-pullquote">
-      "Taş çatlayana kadar anlat. Taş çatlarsa — sen kurtuldun."
-    </div>
-
-    <p>Ama sabır taşı yalnızca Türk geleneğine özgü değildir. Dünyanın dört bir yanında, farklı biçimlerde, aynı ihtiyaç ortaya çıkmıştır: <strong>İnsanın, yargılanmadan, dinlenmesi gereken bir nesneye ya da mekâna ihtiyacı vardır.</strong></p>
-  </div>
-
-  <!-- Kültür Grid -->
-  <div class="culture-grid" id="culture-grid">
-    <div class="culture-card">
-      <span class="culture-flag">🇹🇷</span>
-      <div class="culture-name">Türk Geleneği</div>
-      <div class="culture-text">Sabır taşı — içini döktükçe yükü alan, zamanı gelince çatlayan sessiz dost.</div>
-    </div>
-    <div class="culture-card">
-      <span class="culture-flag">🇮🇪</span>
-      <div class="culture-name">Kelt Geleneği</div>
-      <div class="culture-text">Kutsal taşlara dokunarak dilek dileme ve iç huzuru arama ritüeli.</div>
-    </div>
-    <div class="culture-card">
-      <span class="culture-flag">🇯🇵</span>
-      <div class="culture-name">Japon Geleneği</div>
-      <div class="culture-text">Jizō heykelleri — yolculara ve kayıp ruhlara adanan taş bekçiler.</div>
-    </div>
-    <div class="culture-card">
-      <span class="culture-flag">🌍</span>
-      <div class="culture-name">Afrika Gelenekleri</div>
-      <div class="culture-text">Ata ruhlarına yakın olduğuna inanılan taşlara niyet ve dua bırakma.</div>
-    </div>
-    <div class="culture-card">
-      <span class="culture-flag">🇮🇱</span>
-      <div class="culture-name">Yahudi Geleneği</div>
-      <div class="culture-text">Mezar taşlarına küçük taş bırakmak — hatıra, saygı ve süreklilik işareti.</div>
-    </div>
-    <div class="culture-card">
-      <span class="culture-flag">🏔️</span>
-      <div class="culture-name">Tibet Geleneği</div>
-      <div class="culture-text">Mani taşları — üzerine dua yazılı, dağ geçitlerinde yığılan kutsal taşlar.</div>
-    </div>
-  </div>
-
-  <div class="article-body" id="a-body2">
-    <p>Modern psikoloji’de bu geleneği doğrulamaktadır. <strong>Eksternalizasyon</strong> — yani sorunu "dışarı çıkarma" — bilişsel davranış terapisinin temel araçlarından biridir. Sorunu bir nesneye, bir sayfaya, bir taşa yansıtmak; onu "ben"den ayırmak ve böylece üzerinde daha net düşünebilmek demektir.</p>
-    <p>Geduldstein, bu kadim geleneği dijital çağa taşır. Yargısız. Anonim. Ve sessiz.</p>
-  </div>
+  <h2 class="article-title" id="a-title">Sabır Taşı: Binlerce Yıllık Evrensel Bir Gelenek</h2>
+  <div class="article-body" id="a-body"></div>
+  <div class="culture-grid" id="culture-grid"></div>
+  <div class="article-body" id="a-body2"></div>
 </section>
 
-<!-- ANLATMAK SECTION -->
 <section class="share-section" id="anlatmak">
   <div class="share-inner">
     <h2 class="share-title" id="s-title">Taşına anlat</h2>
-    <p class="share-sub" id="s-sub">
-      Bir takma ad seç. Gerçek değil. Yaz — ne taşırsan, ne kadar taşırsan. Yargı yok, çözüm beklentisi yok. Sadece dinleyen bir sessizlik.
-    </p>
+    <p class="share-sub" id="s-sub">Bir takma ad seç. Gerçek değil. Yaz — ne taşırsan, ne kadar taşırsan. Yargı yok, çözüm beklentisi yok. Sadece dinleyen bir sessizlik.</p>
     <form onsubmit="submitStone(event)">
       <input class="form-field" type="text" id="s-nick" placeholder="Nick / Takma Ad" required>
       <input class="form-field" type="email" id="s-email" placeholder="E-posta (gizli kalır, doğrulama için)" required>
       <textarea class="form-field" id="s-text" placeholder="Taşına ne anlatmak istiyorsun?" required></textarea>
       <button type="submit" class="btn-primary" style="width:100%;margin-top:0.4rem;" id="s-btn">Taşa Bırak</button>
     </form>
-    <p class="form-note" id="s-note">
-      E-posta adresiniz hiçbir zaman görünmez. Onay maili gelecek, ardından paylaşabilirsiniz.<br>
-      Tüm paylaşımlar moderatör onayından sonra yayınlanır. İsteğe bağlı: Gönüllü dinleyiciyle eşleştirme.
-    </p>
+    <p class="form-note" id="s-note">E-posta adresiniz hiçbir zaman görünmez. Onay maili gelecek, ardından paylaşabilirsiniz.<br>Tüm paylaşımlar moderatör onayından sonra yayınlanır. İsteğe bağlı: Gönüllü dinleyiciyle eşleştirme.</p>
   </div>
 </section>
 
-<!-- VOLUNTEER -->
 <section class="vol-section">
   <div class="vol-inner">
     <h2 class="vol-title" id="vol-title">Gönüllü Dinleyici Ol</h2>
-    <p class="vol-desc" id="vol-desc">
-      Psikoloji, sosyoloji veya sosyal hizmet alanında mısınız? Geduldstein'da gönüllü dinleyici olarak insanların yükünü hafifletmelerine katkıda bulunabilirsiniz.
-    </p>
+    <p class="vol-desc" id="vol-desc">Psikoloji, sosyoloji veya sosyal hizmet alanında mısınız? Geduldstein'da gönüllü dinleyici olarak insanların yükünü hafifletmelerine katkıda bulunabilirsiniz.</p>
     <div class="trigger-chips">
       <span class="chip">🎓 Psikoloji Öğrencisi</span>
       <span class="chip">👥 Sosyoloji Stajyeri</span>
@@ -466,9 +419,7 @@
       <span class="chip">✍️ Manevi Danışman</span>
       <span class="chip">🌍 Halkla İlişkiler</span>
     </div>
-    <p class="ref-note" id="vol-ref">
-      "Gönüllü dinleyicilere AskMeAI Teknoloji Ltd. Şti. imzalı resmi referans mektubu sunulmaktadır."
-    </p>
+    <p class="ref-note" id="vol-ref">"Gönüllü dinleyicilere AskMeAI Teknoloji Ltd. Şti. imzalı resmi referans mektubu sunulmaktadır."</p>
     <a href="mailto:gonullu@geduldstein.de" class="btn-outline" id="vol-btn">Başvur →</a>
   </div>
 </section>
@@ -479,23 +430,42 @@
 </footer>
 
 <script>
-var _banner = {"de": "“Tränen haben keine Nationalität. Lachen hat keine Religion.” <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Manifest lesen →</a>", "tr": "“Gözyaşının milliyeti yok. Kahkahanın dini yok.” <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Manifestoyu oku →</a>", "en": "“Tears have no nationality. Laughter has no religion.” <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Read the manifesto →</a>"};
-  var _blogT = {
-    de: {label:"Aus dem Archiv", t1:"Der Stein meiner Großmutter", t2:"Was aus der Tasche überläuft", t3:"Warum nicht?", read:"Lesen →"},
-    tr: {label:"Arşivden", t1:"Büyükannemin Taşı", t2:"Heybeden Taşanlar", t3:"Neden Olmasın?", read:"Oku →"},
-    en: {label:"From the Archive", t1:"My Grandmother's Stone", t2:"What Spills from the Saddlebag", t3:"Why Not?", read:"Read →"}
+var _banner = {
+  de: "“Tränen haben keine Nationalität. Lachen hat keine Religion.” <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Manifest lesen →</a>",
+  tr: "“Gözyaşının milliyeti yok. Kahkahanın dini yok.” <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Manifestoyu oku →</a>",
+  en: "“Tears have no nationality. Laughter has no religion.” <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Read the manifesto →</a>"
+};
+
+var _blogT = {
+  de: {label:"Aus dem Archiv", t1:"Der Stein meiner Großmutter", t2:"Was aus der Tasche überläuft", t3:"Warum nicht?", read:"Lesen →"},
+  tr: {label:"Arşivden", t1:"Büyükannemin Taşı", t2:"Heybeden Taşanlar", t3:"Neden Olmasın?", read:"Oku →"},
+  en: {label:"From the Archive", t1:"My Grandmother's Stone", t2:"What Spills from the Saddlebag", t3:"Why Not?", read:"Read →"}
+};
+
+function _updateBlog(lang) {
+  var t = _blogT[lang]; if (!t) return;
+  var m = {
+    "blog-label": t.label,
+    "blog-title-1": t.t1, "blog-read-1": t.read,
+    "blog-title-2": t.t2, "blog-read-2": t.read,
+    "blog-title-3": t.t3, "blog-read-3": t.read
   };
-  function _updateBlog(lang) {
-    var t = _blogT[lang]; if (!t) return;
-    var m = {"blog-label":t.label,"blog-title-1":t.t1,"blog-read-1":t.read,"blog-title-2":t.t2,"blog-read-2":t.read,"blog-title-3":t.t3,"blog-read-3":t.read};
-    Object.keys(m).forEach(function(id){var el=document.getElementById(id);if(el)el.innerText=m[id];});
-  }
+  Object.keys(m).forEach(function(id){ var el = document.getElementById(id); if (el) el.innerText = m[id]; });
+}
 
 var _ft = {
-    de: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://geduldstein.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">Impressum &amp; Datenschutz</a> \u00b7 Alle Inhalte werden moderiert · Datenschutzfreundlich",
-    tr: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://geduldstein.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">K\u00fcnye &amp; Gizlilik</a> \u00b7 Tüm içerikler moderatör onayından geçer · Gizlilik dostu",
-    en: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://geduldstein.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">Imprint &amp; Privacy</a> \u00b7 All content is moderated · Privacy-friendly"
-  };
+  de: "© 2026 PACDI · <a href=\"https://geduldstein.de/legal.html\" style=\"color:inherit;opacity:0.7;\">Impressum & Datenschutz</a> · Alle Inhalte werden moderiert · Datenschutzfreundlich",
+  tr: "© 2026 PACDI · <a href=\"https://geduldstein.de/legal.html\" style=\"color:inherit;opacity:0.7;\">Künye & Gizlilik</a> · Tüm içerikler moderatör onayından geçer · Gizlilik dostu",
+  en: "© 2026 PACDI · <a href=\"https://geduldstein.de/legal.html\" style=\"color:inherit;opacity:0.7;\">Imprint & Privacy</a> · All content is moderated · Privacy-friendly"
+};
+
+var _bl = { de: "← Startseite", tr: "← Ana Sayfa", en: "← Home" };
+
+var _pageT = {
+  de: { /* blog etiketleri zaten _blogT ile yönetiliyor, burada boş */ },
+  tr: {},
+  en: {}
+};
 
 var T = {
   de: {
@@ -592,18 +562,12 @@ var T = {
 
 var currentLang = 'de';
 
-
-var _pageT = {
-  de: {"blog-label": "Aus dem Archiv", "blog-title-1": "Der Stein meiner Großmutter", "blog-read-1": "Lesen →", "blog-title-2": "Was aus der Tasche überläuft", "blog-read-2": "Lesen →", "blog-title-3": "Warum nicht?", "blog-read-3": "Lesen →"},
-  tr: {"blog-label": "Arşivden", "blog-title-1": "Büyükannemin Taşı", "blog-read-1": "Oku →", "blog-title-2": "Heybeden Taşanlar", "blog-read-2": "Oku →", "blog-title-3": "Neden Olmasın?", "blog-read-3": "Oku →"},
-  en: {"blog-label": "From the Archive", "blog-title-1": "My Grandmother's Stone", "blog-read-1": "Read →", "blog-title-2": "What Spills from the Saddlebag", "blog-read-2": "Read →", "blog-title-3": "Why Not?", "blog-read-3": "Read →"}
-};
 function setLang(lang) {
   currentLang = lang;
-  var br=document.getElementById("body-root"); if(br) br.className="lang-"+lang;
-  var mt=document.getElementById("manifesto-text"); if(mt) mt.innerHTML=(_banner&&_banner[lang])||"";
-  var nb=document.getElementById("nav-back"); if(nb) nb.innerText=_bl[lang]||_bl.de;
-    _updateBlog(lang);
+  var br = document.getElementById("body-root"); if (br) br.className = "lang-" + lang;
+  var mt = document.getElementById("manifesto-text"); if (mt) mt.innerHTML = (_banner && _banner[lang]) || "";
+  var nb = document.getElementById("nav-back"); if (nb) nb.innerText = _bl[lang] || _bl.de;
+  _updateBlog(lang);
   var t = T[lang];
   document.getElementById('h-eyebrow').innerText = t.eyebrow;
   document.getElementById('h-title').innerHTML = t.title;
@@ -614,7 +578,6 @@ function setLang(lang) {
   document.getElementById('a-title').innerText = t.aTitle;
   document.getElementById('a-body').innerHTML = t.aBody;
   document.getElementById('a-body2').innerHTML = t.aBody2;
-  // Culture grid
   var grid = document.getElementById('culture-grid');
   grid.innerHTML = '';
   t.cultures.forEach(function(c) {
@@ -629,8 +592,11 @@ function setLang(lang) {
   document.getElementById('s-note').innerHTML = t.sNote;
   document.getElementById('vol-title').innerText = t.volTitle;
   var chipEls = document.querySelectorAll('.trigger-chips .chip');
-  if(chipEls && t.chips){for(var ci=0;ci<chipEls.length;ci++){if(t.chips[ci])chipEls[ci].innerText=t.chips[ci];}}
-  
+  if (chipEls && t.chips) {
+    for (var ci = 0; ci < chipEls.length; ci++) {
+      if (t.chips[ci]) chipEls[ci].innerText = t.chips[ci];
+    }
+  }
   document.getElementById('vol-desc').innerText = t.volDesc;
   document.getElementById('vol-ref').innerText = t.volRef;
   document.getElementById('vol-btn').innerText = t.volBtn;
@@ -655,28 +621,15 @@ function submitStone(e) {
 }
 
 var ul = (navigator.language || 'de').toLowerCase();
-if(ul.startsWith('tr')) setLang('tr');
-else if(ul.startsWith('en')) setLang('en');
+if (ul.startsWith('tr')) setLang('tr');
+else if (ul.startsWith('en')) setLang('en');
 else setLang('de');
 </script>
 
-
 <script>
 (function(){
-  var CL={de:[{name:"Telefonseelsorge",number:"0800 111 0 111",note:"24/7 kostenlos"},{name:"Nummer gegen Kummer",number:"0800 111 0 550",note:"24/7 kostenlos"}],tr:[{name:"ALO Psikiyatri Hattı",number:"182",note:"7/24 ücretsiz"}],en:[{name:"Befrienders Worldwide",number:"befrienders.org",note:"Global 24/7"}]};
-  var BW={suicide:{tr:["intihar","kendimi öldür","kendime zarar","ölmek istiyorum","yaşamak istemiyorum","kendimi asmak","zehir içeyim","hayatıma son"],de:["suizid","selbstmord","mich umbringen","ich will sterben","nicht mehr leben","tabletten schlucken"],en:["suicide","kill myself","end my life","want to die","hang myself","overdose"]},violence:{tr:["seni öldürürüm","kanını dökerim","bıçaklayacağım","bomba","herkesi öldüreceğim"],de:["ich töte dich","ich bringe dich um","bombe","alle töten"],en:["i will kill you","blow up","shoot everyone","bomb threat"]},hate:{tr:["zenci","göçmen defol","yabancı defol","ırkları temizlemek"],de:["ausländer raus","nazi","heil hitler","neger","untermensch"],en:["nigger","white power","ethnic cleansing","white supremacy"]},discrimination:{tr:["ibne","orospu","geri zekalı","gerizekalı"],de:["schwuchtel","hure","vollidiot","missgeburt"],en:["faggot","retard","subhuman"]},political:{tr:["pkk","darbe","hükümeti devir","cumhurbaşkanı öldür"],de:["staatsstreich","regierung stürzen","terroranschlag"],en:["kill the president","overthrow government","terrorist attack"]}};
-  var WW={tr:["artık dayanamıyorum","çok yalnızım","umudum yok","her şey boş","neden yaşıyorum","değersizim"],de:["ich halte es nicht mehr aus","keine hoffnung mehr","alles sinnlos","ich bin wertlos"],en:["can't take it anymore","no hope left","everything is pointless","i am worthless"]};
-  var MSG={block:{tr:"Bu içerik platformumuzun kurallarıyla bağdaşmıyor.",de:"Dieser Inhalt verstößt gegen unsere Plattformregeln.",en:"This content violates our platform rules."},crisis:{tr:"Zor bir an yaşıyor olabilirsin. Yalnız değilsin:",de:"Du scheinst eine schwere Zeit durchzumachen. Du bist nicht allein:",en:"You seem to be going through a difficult time. You are not alone:"}};
-  function dl(){var l=(navigator.language||'').toLowerCase();if(l.indexOf('tr')===0)return'tr';if(l.indexOf('en')===0)return'en';return'de';}
-  function nm(t){return t.toLowerCase().replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s').replace(/ı/g,'i').replace(/ö/g,'o').replace(/ç/g,'c').replace(/ä/g,'a').replace(/ß/g,'ss').replace(/[^a-z0-9\s]/g,' ');}
-  function cb(text){var t=nm(text);for(var c in BW){var L=BW[c];for(var l in L){var w=L[l];for(var i=0;i<w.length;i++){if(t.indexOf(nm(w[i]))!==-1)return true;}}}return false;}
-  function cw(text){var t=nm(text);for(var l in WW){var w=WW[l];for(var i=0;i<w.length;i++){if(t.indexOf(nm(w[i]))!==-1)return true;}}return false;}
-  function rm(){var o=document.getElementById('pf-m');if(o)o.remove();}
-  function sb(lang){rm();var m=document.createElement('div');m.id='pf-m';m.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;';m.innerHTML='<div style="background:#1a1a2e;border:1px solid #c0392b;border-radius:12px;padding:28px;max-width:480px;width:100%;text-align:center;"><div style="font-size:2rem;margin-bottom:12px;">🚫</div><p style="color:#e74c3c;font-size:1rem;margin-bottom:16px;line-height:1.6;">'+MSG.block[lang]+'</p><button onclick="document.getElementById(\'pf-m\').remove()" style="background:#c0392b;color:white;border:none;padding:10px 24px;border-radius:40px;cursor:pointer;">Kapat / Close</button></div>';document.body.appendChild(m);}
-  function sc(lang){rm();var lines=CL[lang]||CL.de;var lh=lines.map(function(l){return'<div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:10px;margin:6px 0;text-align:left;"><strong style="color:#f39c12;">'+l.name+'</strong><br><span style="color:#ecf0f1;">'+l.number+'</span></div>';}).join('');var m=document.createElement('div');m.id='pf-m';m.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.88);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;';m.innerHTML='<div style="background:#0d1b2a;border:1px solid #2980b9;border-radius:12px;padding:28px;max-width:520px;width:100%;"><div style="font-size:2rem;text-align:center;margin-bottom:12px;">💙</div><p style="color:#ecf0f1;margin-bottom:16px;text-align:center;">'+MSG.crisis[lang]+'</p>'+lh+'<a href="https://www.befrienders.org" target="_blank" style="display:block;text-align:center;margin-top:12px;color:#3498db;">🌍 befrienders.org</a><button onclick="document.getElementById(\'pf-m\').remove()" style="display:block;width:100%;margin-top:16px;background:#2980b9;color:white;border:none;padding:10px;border-radius:40px;cursor:pointer;">Devam Et / Continue</button></div>';document.body.appendChild(m);}
-  function at(el){var lang=dl();var tr=false;el.addEventListener('input',function(){if(cb(el.value)){el.value=el.value.slice(0,-1);if(!tr){tr=true;sb(lang);setTimeout(function(){tr=false;},3000);}}else if(cw(el.value)){sc(lang);}});var form=el.closest('form');if(form){form.addEventListener('submit',function(e){if(cb(el.value)){e.preventDefault();e.stopImmediatePropagation();sb(lang);return false;}},true);}}
-  function init(){var f=document.querySelectorAll('textarea,input[type="text"],input[type="email"]');for(var i=0;i<f.length;i++)at(f[i]);}
-  if(document.readyState==='complete'){setTimeout(init,200);}else{window.addEventListener('load',function(){setTimeout(init,200);});}
+  // Aynı crisis-filter.js içeriği – burada kopyalayabilirsin ya da ayrı dosyadan yükle
+  // Dosya zaten mevcut, burada kopyalamaya gerek yok.
 })();
 </script>
 <script src="/crisis-filter.js"></script>
