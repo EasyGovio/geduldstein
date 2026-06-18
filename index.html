@@ -480,9 +480,9 @@
 
 <script>
 var _banner = {
-  de: `Tränen haben keine Nationalität. Lachen hat keine Religion. <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest &#x2192;</a>`,
-  tr: `Gözyaşının milliyeti yok. Kahkahanın dini yok. <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifesto &#x2192;</a>`,
-  en: `Tears have no nationality. Laughter has no religion. <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifesto &#x2192;</a>`
+  de: 'Tränen haben keine Nationalität. Lachen hat keine Religion. <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#8B6F5E;text-decoration:none;font-style:normal;font-family:DM Mono,monospace;font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest &#x2192;</a>',
+  tr: 'Gözyaşının milliyeti yok. Kahkahanın dini yok. <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#8B6F5E;text-decoration:none;font-style:normal;font-family:DM Mono,monospace;font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifesto &#x2192;</a>',
+  en: 'Tears have no nationality. Laughter has no religion. <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#8B6F5E;text-decoration:none;font-style:normal;font-family:DM Mono,monospace;font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifesto &#x2192;</a>'
 };
   var _blogT = {
     de: {label:"Aus dem Archiv", t1:"Der Stein meiner Großmutter", t2:"Was aus der Tasche überläuft", t3:"Warum nicht?", read:"Lesen →"},
@@ -628,7 +628,17 @@ function setLang(lang) {
   document.getElementById('s-note').innerHTML = t.sNote;
   document.getElementById('vol-title').innerText = t.volTitle;
   var chipEls = document.querySelectorAll('.trigger-chips .chip');
-  if(chipEls && t.chips){for(var ci=0;ci<chipEls.length;ci++){if(t.chips[ci])chipEls[ci].innerText=t.chips[ci];}}  document.getElementById('btn-'+lang).classList.add('active');
+  if(chipEls && t.chips){for(var ci=0;ci<chipEls.length;ci++){if(t.chips[ci])chipEls[ci].innerText=t.chips[ci];}}
+  var chipEls = document.querySelectorAll('.trigger-chips .chip');
+  if(chipEls && t.chips) { for(var ci=0;ci<chipEls.length;ci++) { if(t.chips[ci]) chipEls[ci].innerText = t.chips[ci]; } }
+  document.getElementById('vol-desc').innerText = t.volDesc;
+  document.getElementById('vol-ref').innerText = t.volRef;
+  document.getElementById('vol-btn').innerText = t.volBtn;
+  document.getElementById('f-note').innerHTML = t.fNote;
+  ['btn-de','btn-tr','btn-en'].forEach(function(id){
+    document.getElementById(id).classList.remove('active');
+  });
+  document.getElementById('btn-'+lang).classList.add('active');
   document.documentElement.lang = lang;
 }
 
@@ -649,5 +659,9 @@ if(ul.startsWith('tr')) setLang('tr');
 else if(ul.startsWith('en')) setLang('en');
 else setLang('de');
 </script>
+
+
+
+<script src="/crisis-filter.js"></script>
 </body>
 </html>
