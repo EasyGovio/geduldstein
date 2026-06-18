@@ -78,6 +78,59 @@
   
     #manifesto-banner a {color:#8B6F5E;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;border-bottom:1px solid rgba(139,111,94,0.2);}
     #manifesto-banner a:hover {opacity:0.8;}
+
+    /* Logo offer section */
+    #logo-offer {
+      background: var(--dark2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+    }
+    #logo-offer .offer-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    #logo-offer .logo-icon {
+      font-size: 4rem;
+      background: var(--accent-lt);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+    #logo-offer .offer-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    #logo-offer .offer-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    #logo-offer .offer-response {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: none;
+    }
+    #logo-offer .offer-response.visible {
+      display: block;
+    }
+    [data-lang] { display: none; }
   </style>
 </head>
 <body class="lang-de" id="body-root">
@@ -91,7 +144,6 @@
 </nav>
 <div id="manifesto-banner" style="background:rgba(139,111,94,0.1);border-bottom:1px solid rgba(139,111,94,0.2);padding:0.5rem 2rem;text-align:center;font-family:'Source Serif 4',Georgia,serif;font-size:0.75rem;font-style:italic;color:rgba(255,255,255,0.72);position:relative;z-index:98;"><span id="manifesto-text"></span></div>
 
-
 <section class="hero">
   <div class="hero-inner">
     <span class="hero-eyebrow" id="h-eyebrow">Sabır · Geduld · Patience</span>
@@ -100,6 +152,21 @@
     <div class="hero-actions">
       <a href="#sor" class="btn-primary" id="h-btn-ask">Anlat</a>
       <a href="#koseler" class="btn-outline" id="h-btn-read">Sabır Taşını Keşfet</a>
+    </div>
+  </div>
+</section>
+
+<!-- Logo offer section -->
+<section id="logo-offer">
+  <div class="offer-inner">
+    <div class="logo-icon">🪨</div>
+    <div>
+      <p class="offer-text" id="offer-text">Möchtest du dieses Logo auf deiner Startseite?</p>
+      <div class="offer-buttons" id="offer-buttons">
+        <button class="btn-primary" id="offer-yes" style="padding:0.6rem 1.5rem;">Ja, gerne</button>
+        <button class="btn-outline" id="offer-no" style="padding:0.6rem 1.5rem;">Nein, danke</button>
+      </div>
+      <p class="offer-response" id="offer-response"></p>
     </div>
   </div>
 </section>
@@ -199,8 +266,7 @@
 <script>
   var _bl = { de: "← Startseite", tr: "← Ana Sayfa", en: "← Home" };
   var _banner = {
-    de: 'Tränen haben keine Nationalität. Lachen hat keine Religion. <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#8B6F5E;text-decoration:none;font-style:normal; font-family:DM Mono,monospace;
-font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest →</a>',
+    de: 'Tränen haben keine Nationalität. Lachen hat keine Religion. <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#8B6F5E;text-decoration:none;font-style:normal; font-family:DM Mono,monospace;font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest →</a>',
     tr: 'Gözyaşının milliyeti yok. Kahkahanın dini yok. <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#8B6F5E;text-decoration:none;font-style:normal; font-family:DM Mono,monospace;font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifesto →</a>',
     en: 'Tears have no nationality. Laughter has no religion. <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#8B6F5E;text-decoration:none;font-style:normal; font-family:DM Mono,monospace;font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifesto →</a>'
   };
@@ -216,13 +282,13 @@ font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest →</a>',
       cat1: "Hikâye", title1: "Büyükannemin Taşı",
       cat2: "Arşiv", title2: "Heybeden Taşanlar",
       cat3: "Manifesto", title3: "Neden Olmasın?",
-      read: "Devamını oku", prefix: "Geduldstein · "
+      read: "Devamını oku", prefix: "Sabırtaşı · "
     },
     en: {
       cat1: "Story", title1: "My Grandmother's Stone",
       cat2: "Archive", title2: "What Spills from the Saddlebag",
       cat3: "Manifesto", title3: "Why Not?",
-      read: "Read more", prefix: "Geduldstein · "
+      read: "Read more", prefix: "Patience Stone · "
     }
   };
 
@@ -239,7 +305,6 @@ font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest →</a>',
       var el = document.getElementById(id);
       if (el) el.innerText = m[id];
     });
-    // Update prefix in meta-1, meta-2, meta-3
     ['meta-1', 'meta-2', 'meta-3'].forEach(function(id) {
       var el = document.getElementById(id);
       if (!el) return;
@@ -264,7 +329,12 @@ font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest →</a>',
       nickPh: "Nickname", emailPh: "E-Mail (bleibt privat)", textPh: "Was möchtest du deinem Stein erzählen?",
       askBtn: "Dem Stein übergeben →",
       askNote: 'Deine E-Mail bleibt unsichtbar. Nach der Bestätigung kannst du teilen.<br>Alle Beiträge werden vor der Veröffentlichung moderiert.',
-      fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · Alle Inhalte werden moderiert · Datenschutzfreundlich'
+      fNote: '© 2026 PACDI · Alle Inhalte werden moderiert · Datenschutzfreundlich',
+      offerText: 'Möchtest du dieses Logo auf deiner Startseite?',
+      offerYes: 'Ja, gerne',
+      offerNo: 'Nein, danke',
+      offerResponseYes: 'Großartig! Du kannst es jetzt herunterladen oder als Lesezeichen speichern.',
+      offerResponseNo: 'Verstanden. Vielleicht später einmal.'
     },
     tr: {
       eyebrow: "Sabır · Geduld · Patience",
@@ -279,7 +349,12 @@ font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest →</a>',
       nickPh: "Nick / Takma Ad", emailPh: "E-posta (gizli kalır)", textPh: "Taşına ne anlatmak istiyorsun?",
       askBtn: "Taşa Bırak →",
       askNote: 'E-posta adresiniz hiçbir zaman görünmez. Onay maili gelecek, ardından paylaşabilirsiniz.<br>Tüm paylaşımlar moderatör onayından sonra yayınlanır.',
-      fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Künye & Gizlilik</a> · Tüm içerikler moderatör onayından geçer · Gizlilik dostu'
+      fNote: '© 2026 PACDI · Tüm içerikler moderatör onayından geçer · Gizlilik dostu',
+      offerText: 'Bu logoyu ana sayfana eklemek ister misin?',
+      offerYes: 'Evet, isterim',
+      offerNo: 'Hayır, teşekkürler',
+      offerResponseYes: 'Harika! Şimdi indirebilir veya yer imlerine ekleyebilirsin.',
+      offerResponseNo: 'Anlaşıldı. Belki daha sonra.'
     },
     en: {
       eyebrow: "Sabır · Geduld · Patience",
@@ -294,7 +369,12 @@ font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest →</a>',
       nickPh: "Nickname", emailPh: "Email (stays private)", textPh: "What do you want to tell your stone?",
       askBtn: "Leave it with the stone →",
       askNote: 'Your email will never be visible. A confirmation will arrive, then you may share.<br>All posts are reviewed by a moderator before publication.',
-      fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · All content is moderated · Privacy-friendly'
+      fNote: '© 2026 PACDI · All content is moderated · Privacy-friendly',
+      offerText: 'Would you like to add this logo to your home page?',
+      offerYes: 'Yes, please',
+      offerNo: 'No, thanks',
+      offerResponseYes: 'Great! You can now download it or bookmark the page.',
+      offerResponseNo: 'Understood. Maybe later.'
     }
   };
 
@@ -321,26 +401,7 @@ font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest →</a>',
     document.getElementById('h-btn-ask').innerText = t.btnAsk;
     document.getElementById('h-btn-read').innerText = t.btnRead;
 
-    // Blog content (a-1, a-2, a-3) – the .abi-answer contains data-lang divs, but we use innerHTML directly
-    // We'll use the data-lang approach by showing the correct div? Actually simpler: we set the answer html per language.
-    // In this version, we'll just set innerHTML from T, but we have three separate answers.
-    // We'll store answers in T for each blog card.
-    // For simplicity, I'll hardcode the answers in T as a1, a2, a3.
-    // Let's add a1, a2, a3 to T objects.
-    // I'll define them now.
-    // Actually, we can use the data-lang approach but we need to toggle visibility.
-    // Since we have three blog cards, we can set the innerHTML of each .abi-answer directly.
-    // I'll add a1, a2, a3 to T.
-    // I'll update T definition above to include a1, a2, a3.
-    // But I already defined T without them. I'll quickly add them.
-    // For now, I'll update T object in code below.
-    // Let's redefine T with a1, a2, a3.
-    // I'll do it now.
-    // Actually, easier: I'll set the content using data-lang by showing/hiding divs.
-    // But the current structure has divs with data-lang, so we can hide/show them.
-    // We'll use that approach.
-    // We need to show only the div with data-lang=lang inside each .abi-answer.
-    // Let's do that.
+    // Blog answers (data-lang)
     document.querySelectorAll('.abi-answer').forEach(function(container) {
       var children = container.querySelectorAll('[data-lang]');
       children.forEach(function(div) {
@@ -368,6 +429,15 @@ font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest →</a>',
     // Footer
     document.getElementById('f-note').innerHTML = t.fNote;
 
+    // Logo offer
+    document.getElementById('offer-text').innerText = t.offerText;
+    document.getElementById('offer-yes').innerText = t.offerYes;
+    document.getElementById('offer-no').innerText = t.offerNo;
+    // store response texts for later use
+    var resp = document.getElementById('offer-response');
+    resp.dataset.yes = t.offerResponseYes;
+    resp.dataset.no = t.offerResponseNo;
+
     // Language buttons
     ['btn-de', 'btn-tr', 'btn-en'].forEach(function(id) {
       document.getElementById(id).classList.remove('active');
@@ -376,7 +446,7 @@ font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest →</a>',
 
     document.documentElement.lang = lang;
 
-    // Update blog card meta and titles (spans)
+    // Update blog card meta and titles
     _updateBlog(lang);
   }
 
@@ -399,6 +469,27 @@ font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest →</a>',
       document.querySelectorAll('.cat-chip').forEach(function(b) { b.classList.remove('active'); });
       this.classList.add('active');
     });
+  });
+
+  // Logo offer buttons
+  document.addEventListener('DOMContentLoaded', function() {
+    var yesBtn = document.getElementById('offer-yes');
+    var noBtn = document.getElementById('offer-no');
+    var response = document.getElementById('offer-response');
+    var buttons = document.getElementById('offer-buttons');
+
+    function handleOffer(choice) {
+      if (choice === 'yes') {
+        response.textContent = response.dataset.yes;
+      } else {
+        response.textContent = response.dataset.no;
+      }
+      response.classList.add('visible');
+      buttons.style.display = 'none';
+    }
+
+    yesBtn.addEventListener('click', function() { handleOffer('yes'); });
+    noBtn.addEventListener('click', function() { handleOffer('no'); });
   });
 
   // Language detection
