@@ -1,312 +1,100 @@
 <!DOCTYPE html>
-<!--
-╔═══════════════════════════════════════════════════════════════╗
-║         🛡️  PACDI FRAMEWORK — PROTECTED WORK                  ║
-║  © 2026 PACDI Global Yazılım Ltd. Şti. (FSEK: 2026/18897)   ║
-║  Operated by AskMeAI Teknoloji Ltd. Şti. (TR: 23837)        ║
-║  Unauthorized copying is subject to legal action.            ║
-╚═══════════════════════════════════════════════════════════════╝
--->
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Notice &amp; Privacy Policy | PACDI</title>
+    <title>Impressum &amp; Datenschutz</title>
     <meta name="robots" content="noindex, nofollow">
-    <link rel="canonical" href="https://pacdi.eu/legal.html">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E6ML8EDW0H"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-E6ML8EDW0H");</script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #04162E; color: #e8edf2; padding: 40px 20px 80px; line-height: 1.75; }
-        .wrap { max-width: 800px; margin: 0 auto; }
-        .site-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 48px; padding-bottom: 20px; border-bottom: 1px solid rgba(246,180,95,0.12); }
-        .logo { color: #F6B45F; font-weight: 800; font-size: 1.1rem; text-decoration: none; }
-        .back { color: #7a9ab8; text-decoration: none; font-size: 0.82rem; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #04162E; color: #e8edf2; padding: 40px 20px 80px; line-height: 1.75; }
+        .wrap { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-flex; align-items: center; gap: 6px; color: #7a9ab8; text-decoration: none; font-size: 0.85rem; margin-bottom: 36px; }
         .back:hover { color: #F6B45F; }
-        h1 { font-size: 1.8rem; color: #F6B45F; margin-bottom: 6px; }
-        .subtitle { font-size: 0.85rem; color: #7a9ab8; margin-bottom: 8px; }
-        .last-updated { font-size: 0.75rem; color: #4a6a88; margin-bottom: 40px; }
-        .toc { background: rgba(255,255,255,0.03); border: 1px solid rgba(246,180,95,0.1); border-radius: 12px; padding: 20px 24px; margin-bottom: 40px; }
-        .toc h3 { font-size: 0.75rem; color: #7a9ab8; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
-        .toc a { display: block; color: #b0b5bf; text-decoration: none; font-size: 0.85rem; padding: 3px 0; }
-        .toc a:hover { color: #F6B45F; }
-        section { margin-bottom: 48px; }
-        h2 { font-size: 0.75rem; font-weight: 700; color: #F6B45F; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid rgba(246,180,95,0.12); }
-        h3 { font-size: 0.88rem; color: #c8cdd5; margin: 20px 0 8px; font-weight: 600; }
+        h1 { font-size: 1.6rem; color: #F6B45F; margin-bottom: 6px; }
+        .subtitle { font-size: 0.85rem; color: #7a9ab8; margin-bottom: 36px; }
+        h2 { font-size: 0.8rem; font-weight: 700; color: #F6B45F; margin: 28px 0 10px; text-transform: uppercase; letter-spacing: 0.06em; }
         p { font-size: 0.88rem; color: #8a9ab0; margin-bottom: 10px; }
         a { color: #F6B45F; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        ul { padding-left: 20px; margin-bottom: 10px; }
-        li { font-size: 0.88rem; color: #8a9ab0; margin-bottom: 4px; }
-        hr { border: none; border-top: 1px solid rgba(246,180,95,0.08); margin: 36px 0; }
-
-        /* Company boxes */
-        .company-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
-        .company-box { background: rgba(255,255,255,0.02); border: 1px solid rgba(246,180,95,0.12); border-radius: 12px; padding: 18px 20px; }
-        .company-box.primary { border-color: rgba(246,180,95,0.3); }
-        .company-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #F6B45F; margin-bottom: 10px; }
-        .company-box p { font-size: 0.82rem; color: #b0b5bf; margin-bottom: 4px; }
-        .company-box strong { color: #e8edf2; }
-
-        /* Product grid */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin: 16px 0; }
-        .product-chip { background: rgba(255,255,255,0.03); border: 1px solid rgba(246,180,95,0.1); border-radius: 8px; padding: 10px 14px; font-size: 0.8rem; color: #b0b5bf; }
-        .product-chip strong { color: #e8edf2; display: block; margin-bottom: 2px; }
-        .product-chip span { color: #4a6a88; font-size: 0.72rem; }
-
-        /* Warning box */
-        .warn { background: rgba(246,180,95,0.05); border: 1px solid rgba(246,180,95,0.2); border-left: 4px solid #F6B45F; border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
-        .warn strong { color: #F6B45F; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 6px; }
-        .warn p { color: #c8cdd5; font-size: 0.85rem; margin: 0; }
-
-        /* Contact box */
-        .contact-box { background: rgba(255,255,255,0.02); border: 1px solid rgba(246,180,95,0.15); border-radius: 12px; padding: 24px; margin-top: 16px; }
-        .contact-box p { color: #b0b5bf; margin-bottom: 6px; }
-        .contact-box .email { font-size: 1rem; color: #F6B45F; font-weight: 600; }
-
-        /* FSEK badge */
-        .fsek-block { text-align: center; padding: 32px 0 0; }
-        .fsek-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.25); border-radius: 24px; padding: 8px 22px; margin-bottom: 14px; }
+        hr { border: none; border-top: 1px solid rgba(246,180,95,0.1); margin: 28px 0; }
+        .box { background: rgba(255,255,255,0.02); border: 1px solid rgba(246,180,95,0.15); border-radius: 12px; padding: 20px 24px; margin: 12px 0; }
+        .warn { background: rgba(246,180,95,0.05); border-left: 4px solid #F6B45F; border-radius: 8px; padding: 14px 18px; margin: 12px 0; }
+        .warn p { color: #c8cdd5; margin: 0; }
+        .fsek-block { text-align: center; padding: 28px 0 0; }
+        .fsek-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.25); border-radius: 24px; padding: 8px 20px; margin-bottom: 12px; }
         .fsek-badge span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #D4AF37; text-transform: uppercase; }
-        .fsek-copy { font-size: 0.78rem; color: #6B7280; margin-bottom: 4px; }
-        .fsek-tagline { font-size: 0.82rem; font-style: italic; color: #4a6a88; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 1.4rem; }
-            .company-grid { grid-template-columns: 1fr; }
-            .product-grid { grid-template-columns: 1fr; }
-            .site-header { flex-direction: column; align-items: flex-start; gap: 12px; }
-        }
     </style>
+    <link rel="canonical" href="https://geduldstein.de/legal.html" />
 </head>
 <body>
+<!--
+╬═══════════════════════════════════════════════════════════════╮
+║         🛡️  PACDI FRAMEWORK — PROTECTED WORK                  ║
+║                                                               ║
+║  © 2026 PACDI Global Yazılım Ltd. Şti.                       ║
+║  FSEK Registration No : 2026/18897                            ║
+║  Trade Registry      : 23836 · Yunusemre / Manisa, TR       ║
+║                                                               ║
+║  This work and its modular software architecture are          ║
+║  protected under PACDI Software Library FSEK registration.   ║
+║  Unauthorized copying is subject to legal action.            ║
+║                                                               ║
+║  pacdi.eu · pacdi.de · info@pacdi.eu                         ║
+╠═══════════════════════════════════════════════════════════════╣
+-->
+
 <div class="wrap">
+<a href="/" class="back">&larr; Zur&uuml;ck</a>
+<h1>Impressum &amp; Datenschutz</h1>
+<p class="subtitle">Vollst&auml;ndige rechtliche Informationen: <a href="https://pacdi.eu/legal.html" target="_blank">pacdi.eu/legal.html</a></p>
 
-<div class="site-header">
-    <a href="https://pacdi.eu" class="logo">PACDI</a>
-    <a href="https://pacdi.eu" class="back">&larr; pacdi.eu</a>
+<h2>Impressum</h2>
+<div class="box">
+    <p><strong style="color:#e8edf2;">AskMeAI Teknoloji Ltd. &Scaron;ti.</strong><br>
+    Ticaret Sicil No: 23837<br>
+    Ayni Ali Mah. 3317 Sk. Nur Apt No:43 I&ccedil; Kap&imath; No:3<br>
+    Yunusemre / Manisa, T&uuml;rkiye<br>
+    MER&Scaron;&Iuml;S: 0086178065200001</p>
+    <p style="margin-top:12px;"><strong style="color:#e8edf2;">Verantwortlicher gem&auml;&szlig; &sect; 18 Abs. 2 MStV:</strong><br>
+    Mehmet Ayd&imath;nl&imath;<br>
+    Bernauerstr. 115, 13507 Berlin, Deutschland<br>
+    E-Mail: <a href="mailto:info@askmeai.io">info@askmeai.io</a></p>
 </div>
 
-<h1>Legal Notice &amp; Privacy Policy</h1>
-<p class="subtitle">This page covers all digital products and services operated under the PACDI brand.</p>
-<p class="last-updated">Last updated: June 2026</p>
-
-<!-- TOC -->
-<div class="toc">
-    <h3>Contents</h3>
-    <a href="#structure">1. Company Structure</a>
-    <a href="#products">2. Products &amp; Services Covered</a>
-    <a href="#impressum">3. Legal Notice (Impressum)</a>
-    <a href="#liability">4. Limitation of Liability</a>
-    <a href="#privacy">5. Privacy Policy</a>
-    <a href="#cookies">6. Cookies &amp; Tracking</a>
-    <a href="#ip">7. Intellectual Property</a>
-    <a href="#contact">8. Contact</a>
+<div class="warn">
+    <p>Dieses Angebot ist ein digitaler Informationsdienst und stellt keine Rechts- oder Steuerberatung dar.</p>
 </div>
 
-<!-- 1. COMPANY STRUCTURE -->
-<section id="structure">
-    <h2>1. Company Structure</h2>
-    <p>PACDI operates through a two-entity structure registered in T&uuml;rkiye:</p>
-    <div class="company-grid">
-        <div class="company-box primary">
-            <div class="company-label">&#9889; Operational Entity</div>
-            <p><strong>AskMeAI Teknoloji Ltd. &#350;ti.</strong></p>
-            <p>Trade Registry No: 23837</p>
-            <p>NACE: 62.10.00</p>
-            <p>Yunusemre / Manisa, T&uuml;rkiye</p>
-            <p style="margin-top:8px; font-size:0.75rem; color:#4a6a88;">Responsible for operations, customer relations, data processing, and all legal obligations toward users.</p>
-        </div>
-        <div class="company-box">
-            <div class="company-label">&#128737;&#65039; IP Holding Entity</div>
-            <p><strong>PACDI Global Yaz&#305;l&#305;m Ltd. &#350;ti.</strong></p>
-            <p>Trade Registry No: 23836</p>
-            <p>NACE: 62.10.00</p>
-            <p>Yunusemre / Manisa, T&uuml;rkiye</p>
-            <p style="margin-top:8px; font-size:0.75rem; color:#4a6a88;">Holds all intellectual property, trademarks, FSEK registrations, and domain portfolio.</p>
-        </div>
-    </div>
-</section>
+<hr>
+
+<h2>Datenschutzerkl&auml;rung</h2>
+
+<h2>1. Datenerhebung</h2>
+<p>Die meisten PACDI-Tools speichern Daten ausschlie&szlig;lich lokal in Ihrem Browser (localStorage). Es werden keine pers&ouml;nlichen Daten an unsere Server &uuml;bertragen.</p>
+
+<h2>2. Google Analytics</h2>
+<p>Diese Website verwendet Google Analytics (Google Ireland Limited). IP-Adressen werden vor der Speicherung anonymisiert. Opt-out: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out Add-on</a>.</p>
+
+<h2>3. Google AdSense</h2>
+<p>Diese Website zeigt Werbeanzeigen &uuml;ber Google AdSense. AdSense verwendet Cookies f&uuml;r interessenbezogene Werbung. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank">Google Datenschutzerkl&auml;rung</a>.</p>
+
+<h2>4. Ihre Rechte (DSGVO Art. 15&ndash;21)</h2>
+<p>Auskunft, Berichtigung, L&ouml;schung, Einschr&auml;nkung, Daten&uuml;bertragbarkeit, Widerspruch. Kontakt: <a href="mailto:info@askmeai.io">info@askmeai.io</a> &mdash; Antwort innerhalb von 30 Tagen.</p>
+
+<h2>5. Geistiges Eigentum</h2>
+<p>Alle Softwarearchitekturen und Inhaltsstrukturen sind Eigentum der <strong style="color:#e8edf2;">PACDI Global Yaz&imath;l&imath;m Ltd. &Scaron;ti.</strong> (TR: 23836) und gesch&uuml;tzt unter FSEK-Registrierung Nr. 2026/18897. Betrieben durch AskMeAI Teknoloji Ltd. &Scaron;ti. im Rahmen einer Sublizenz.</p>
 
 <hr>
 
-<!-- 2. PRODUCTS -->
-<section id="products">
-    <h2>2. Products &amp; Services Covered</h2>
-    <p>This legal notice applies to all websites, tools, and services operated by AskMeAI Teknoloji Ltd. &#350;ti. under license from PACDI Global Yaz&#305;l&#305;m Ltd. &#350;ti., including:</p>
-    <div class="product-grid">
-        <div class="product-chip"><strong>pacdi.store</strong><span>QR, Barcode, DGUV V3 Pr&uuml;fprotokoll, Scanner, Password</span></div>
-        <div class="product-chip"><strong>pacdi.eu / pacdi.de</strong><span>PACDI Digital Studio, AI Guide, corporate pages</span></div>
-        <div class="product-chip"><strong>wasstehtmirzu.com</strong><span>Social benefits guide, PDF form assistance, blog</span></div>
-        <div class="product-chip"><strong>NavigoPro</strong><span>Career assessment platform (RIASEC-based)</span></div>
-        <div class="product-chip"><strong>PusulaPro</strong><span>Turkish career compass (D-V-F-A model)</span></div>
-        <div class="product-chip"><strong>SilverCompass</strong><span>Cognitive exercise platform for seniors</span></div>
-        <div class="product-chip"><strong>GlucoNavigat&ouml;r</strong><span>Wellness tracking tool (non-medical)</span></div>
-        <div class="product-chip"><strong>BetreuerPro</strong><span>Professional training &amp; case management tools</span></div>
-        <div class="product-chip"><strong>EasyGov.io</strong><span>Multilingual social benefits eligibility guide</span></div>
-        <div class="product-chip"><strong>beichtraum.de</strong><span>Anonymous emotional expression platform</span></div>
-        <div class="product-chip"><strong>geduldstein.de</strong><span>Patience &amp; mindfulness support platform</span></div>
-        <div class="product-chip"><strong>onkelsorgen.de</strong><span>Emotional support &amp; peer connection platform</span></div>
-        <div class="product-chip"><strong>Pacdi.Games</strong><span>Browser-based educational &amp; cognitive games</span></div>
-    </div>
-    <p>All products are digital tools only and do not constitute professional legal, medical, financial, or technical advisory services.</p>
-</section>
-
-<hr>
-
-<!-- 3. IMPRESSUM -->
-<section id="impressum">
-    <h2>3. Legal Notice (Impressum)</h2>
-
-    <h3>Service Operator &amp; Legal Representative</h3>
-    <p>All services listed above are operated by:</p>
-    <div class="contact-box">
-        <p><strong style="color:#e8edf2; font-size:0.95rem;">AskMeAI Teknoloji Ltd. &#350;ti.</strong></p>
-        <p>Trade Registry No: 23837</p>
-        <p>NACE Code: 62.10.00 (Software Development)</p>
-        <p>Yunusemre / Manisa, T&uuml;rkiye</p>
-        <p style="margin-top: 12px;">Authorized contact for legal correspondence:</p>
-        <p class="email"><a href="mailto:info@pacdi.eu">info@pacdi.eu</a></p>
-        <p style="margin-top:8px; font-size:0.78rem; color:#4a6a88;">
-            AskMeAI Teknoloji Ltd. &#350;ti. is registered in T&uuml;rkiye and operates digital services within the European Union. For the purposes of &sect;&nbsp;5 TMG and &sect;&nbsp;55 RStV, the authorized contact can be reached via the e-mail address above. Response time: within 7 business days.
-        </p>
-    </div>
-
-    <h3>Intellectual Property Owner</h3>
-    <div class="contact-box" style="margin-top:12px;">
-        <p><strong style="color:#e8edf2; font-size:0.95rem;">PACDI Global Yaz&#305;l&#305;m Ltd. &#350;ti.</strong></p>
-        <p>Trade Registry No: 23836</p>
-        <p>Yunusemre / Manisa, T&uuml;rkiye</p>
-        <p>Web: <a href="https://pacdi.eu">pacdi.eu</a></p>
-        <p style="margin-top:8px; font-size:0.78rem; color:#4a6a88;">
-            Holds all trademarks, FSEK copyright registrations, domain portfolio, and software IP under license to AskMeAI Teknoloji Ltd. &#350;ti.
-        </p>
-    </div>
-</section>
-
-<hr>
-
-<!-- 4. LIABILITY -->
-<section id="liability">
-    <h2>4. Limitation of Liability</h2>
-
-    <h3>General</h3>
-    <p>All PACDI products are provided as digital tools for informational and documentation purposes only. AskMeAI Teknoloji Ltd. &#350;ti. assumes no liability for decisions made based on tool outputs, blog content, or any information presented on PACDI-operated websites.</p>
-
-    <h3>DGUV V3 Pr&uuml;fprotokoll (pacdi.store)</h3>
-    <div class="warn">
-        <strong>&#9888;&#65039; Technical Tool — Not a Certification Service</strong>
-        <p>PACDI Digital ist ein reines Dokumentationswerkzeug. Die Verantwortung f&uuml;r die korrekte Durchf&uuml;hrung der Messungen, die Einhaltung der Pr&uuml;ffristen und die fachliche Beurteilung liegt ausschlie&szlig;lich bei der pr&uuml;fenden Elektrofachkraft (Bef&auml;higte Person nach TRBS&nbsp;1203). Die Pr&uuml;ffristen wurden auf Basis der betriebsinternen Gef&auml;hrdungsbeurteilung gem&auml;&szlig; &sect;&nbsp;3 BetrSichV festgelegt.</p>
-    </div>
-
-    <h3>Health &amp; Wellness Tools (GlucoNavigat&ouml;r, SilverCompass)</h3>
-    <div class="warn">
-        <strong>&#9888;&#65039; Wellness Tool — Not a Medical Device</strong>
-        <p>GlucoNavigat&ouml;r and SilverCompass are wellness and cognitive exercise tools only. They do not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional for medical decisions.</p>
-    </div>
-
-    <h3>Social Benefits &amp; Legal Information (wasstehtmirzu.com, EasyGov)</h3>
-    <div class="warn">
-        <strong>&#9888;&#65039; Informational Only — Not Legal Advice</strong>
-        <p>Content related to social benefits, government forms, and legal rights is provided for general informational purposes only. Laws and regulations change frequently. Always verify with official authorities or a qualified legal professional.</p>
-    </div>
-
-    <h3>Emotional Support Platforms (beichtraum.de, geduldstein.de, onkelsorgen.de)</h3>
-    <div class="warn">
-        <strong>&#9888;&#65039; Peer Support — Not Professional Counselling</strong>
-        <p>These platforms provide a space for anonymous expression and peer connection only. They are not a substitute for professional psychological or psychiatric care. If you are in crisis, please contact emergency services or a mental health professional immediately.</p>
-    </div>
-
-    <h3>Career Assessment Tools (NavigoPro, PusulaPro, BetreuerPro)</h3>
-    <p>Assessment results are based on self-reported data and standardized models. Results are indicative only and do not constitute professional career counselling, hiring recommendations, or psychological evaluation.</p>
-</section>
-
-<hr>
-
-<!-- 5. PRIVACY -->
-<section id="privacy">
-    <h2>5. Privacy Policy</h2>
-
-    <h3>Data Controller</h3>
-    <p><strong>AskMeAI Teknoloji Ltd. &#350;ti.</strong> (Trade Registry: 23837), reachable at <a href="mailto:info@pacdi.eu">info@pacdi.eu</a>, is the data controller for all personal data processed through PACDI-operated platforms.</p>
-
-    <h3>Data We Collect</h3>
-    <ul>
-        <li><strong>Tool usage data:</strong> Most PACDI tools store data exclusively in your browser's local storage (localStorage). No tool data is transmitted to our servers.</li>
-        <li><strong>Early Access e-mail:</strong> If you voluntarily submit your e-mail address, it is used solely to notify you of product launches. Legal basis: Art.&nbsp;6(1)(a) GDPR. You may withdraw consent at any time.</li>
-        <li><strong>PDF form assistance (wasstehtmirzu.com):</strong> Documents submitted for form-filling are processed for that sole purpose and deleted after delivery.</li>
-        <li><strong>Server logs:</strong> Standard web server logs are retained for up to 7 days for security purposes.</li>
-    </ul>
-
-    <h3>Your Rights (GDPR Art. 15&ndash;21)</h3>
-    <p>You have the right to access, rectification, erasure, restriction of processing, data portability, and objection. Contact <a href="mailto:info@pacdi.eu">info@pacdi.eu</a>. We will respond within 30 days.</p>
-
-    <h3>Data Transfers</h3>
-    <p>AskMeAI Teknoloji Ltd. &#350;ti. does not sell personal data. Where third-party services are used (Google Analytics, Google AdSense, EmailJS), data may be processed outside the EU/EEA under Standard Contractual Clauses.</p>
-</section>
-
-<hr>
-
-<!-- 6. COOKIES -->
-<section id="cookies">
-    <h2>6. Cookies &amp; Tracking</h2>
-
-    <h3>Google Analytics</h3>
-    <p>We use Google Analytics (Google Ireland Limited) to understand website traffic. IP addresses are anonymised. Legal basis: Art.&nbsp;6(1)(f) GDPR. Opt out via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out Add-on</a>.</p>
-
-    <h3>Google AdSense</h3>
-    <p>Some PACDI websites display advertisements via Google AdSense. AdSense may use cookies to show interest-based ads. See <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
-
-    <h3>Local Storage</h3>
-    <p>PACDI tools use browser localStorage to save your work locally. This data never leaves your device unless you explicitly export it. Clear it anytime via your browser settings.</p>
-</section>
-
-<hr>
-
-<!-- 7. IP -->
-<section id="ip">
-    <h2>7. Intellectual Property</h2>
-    <p>All software architectures, UI frameworks, content structures, assessment models, and design systems published under the PACDI brand are owned by <strong>PACDI Global Yaz&#305;l&#305;m Ltd. &#350;ti.</strong> and protected under:</p>
-    <ul>
-        <li>FSEK (Turkish Law on Intellectual and Artistic Works) &mdash; Registration No: <strong>2026/18897</strong></li>
-        <li>Applicable EU and international copyright law</li>
-    </ul>
-    <p>All products are operated by AskMeAI Teknoloji Ltd. &#350;ti. under sublicense from PACDI Global Yaz&#305;l&#305;m Ltd. &#350;ti.</p>
-    <p>Unauthorized reproduction, copying, reverse engineering, or redistribution of any PACDI software framework or content architecture is strictly prohibited and subject to legal action.</p>
-    <p>The PACDI name, logo, and product names are trademarks of PACDI Global Yaz&#305;l&#305;m Ltd. &#350;ti. Pending registration with T&Uuml;RKPATENT and EUIPO.</p>
-</section>
-
-<hr>
-
-<!-- 8. CONTACT -->
-<section id="contact">
-    <h2>8. Contact</h2>
-    <div class="contact-box">
-        <p>For all legal, privacy, or general inquiries:</p>
-        <p class="email"><a href="mailto:info@pacdi.eu">info@pacdi.eu</a></p>
-        <p style="margin-top: 12px; font-size:0.82rem; color:#6B7280;">
-            AskMeAI Teknoloji Ltd. &#350;ti. (Operations) &mdash; TR: 23837<br>
-            PACDI Global Yaz&#305;l&#305;m Ltd. &#350;ti. (IP) &mdash; TR: 23836<br>
-            Yunusemre / Manisa, T&uuml;rkiye<br>
-            Response time: within 7 business days.
-        </p>
-    </div>
-</section>
-
-<hr style="margin-top:48px;">
-
-<!-- FSEK BADGE -->
 <div id="pacdi-fsek" class="fsek-block">
-    <div class="fsek-badge">
-        <span>&#128737;&#65039;</span>
-        <span>FSEK Registered &middot; PACDI Framework</span>
-    </div>
-    <p class="fsek-copy">Operated by AskMeAI Teknoloji Ltd. &#350;ti. (TR: 23837)</p>
-    <p class="fsek-copy">Intellectual property owned by &copy; 2026 PACDI Global Yaz&#305;l&#305;m Ltd. &#350;ti. &mdash; FSEK No: 2026/18897</p>
-    <p class="fsek-tagline">&ldquo;Technology in the service of humanity.&rdquo;</p>
+    <div class="fsek-badge"><span>&#128737;&#65039;</span><span>FSEK Registered &middot; PACDI Framework</span></div>
+    <p style="font-size:0.78rem;color:#6B7280;margin-bottom:4px;">Operated by AskMeAI Teknoloji Ltd. &Scaron;ti. (TR: 23837)</p>
+    <p style="font-size:0.72rem;color:#4a6a88;margin-bottom:6px;">&copy; 2026 PACDI Global Yaz&imath;l&imath;m Ltd. &Scaron;ti. &mdash; FSEK No: 2026/18897</p>
+    <p style="font-size:0.82rem;font-style:italic;color:#4a6a88;">&ldquo;Technology in the service of humanity.&rdquo;</p>
 </div>
-
 </div>
 </body>
 </html>
