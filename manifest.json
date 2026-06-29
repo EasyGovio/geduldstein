@@ -1,21 +1,26 @@
-
 {
-  "name": "Geduldstein - Sabır Taşı",
-  "short_name": "Geduldstein",
-  "description": "Der Stein, der zuhört | Sessizce dinleyen taş",
-  "start_url": "/",
+  "name": "PACDI — geduldstein.de",
+  "short_name": "PACDI",
+  "description": "PACDI Digital — Technology in the service of humanity.",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#1C140E",
-  "theme_color": "#8B6F5E",
+  "background_color": "#04162E",
+  "theme_color": "#04162E",
+  "orientation": "portrait",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "https://cdn-icons-png.flaticon.com/512/6849/6849232.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-512.png",
+      "src": "https://cdn-icons-png.flaticon.com/512/6849/6849232.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
